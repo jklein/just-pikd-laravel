@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Pikd
+        psr4_prefix: Pikd
+        src_path: app
