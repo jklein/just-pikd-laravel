@@ -145,6 +145,11 @@ return [
 		'Pikd\Providers\EventServiceProvider',
 		'Pikd\Providers\RouteServiceProvider',
 
+		/* 
+		 * Mustache templating
+		 */
+		'Laratash\LaratashServiceProvider',
+
 	],
 
 	/*

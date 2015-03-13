@@ -1,0 +1,24 @@
+{{% BLOCKS }}
+{{< base }}
+
+{{$ title }}Utility Page: Testing Services{{/ title }}
+
+{{$ content}}
+    <h1>Memcached</h1>
+    <h4>Storing data in the cache (data will expire in 10 seconds)</h4>
+    <h4>Retrieving data from the cache:</h4>
+    <pre>{{ memcached_string }}</pre>
+    <pre>{{ memcached_int }}</pre>
+
+    <h1>Database</h1>
+    <h4>A user:</h4>
+    {{# users }}
+        <pre>{{ . }}</pre>
+    {{/ users }}
+    
+
+    <h1>Monolog</h1>
+    <h4>Doing some logging...as long as there are no errors we are good</h4>
+{{/ content}}
+
+{{/ base }}

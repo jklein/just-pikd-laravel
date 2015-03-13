@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'pgsqlProduct',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -45,45 +45,38 @@ return [
 	*/
 
 	'connections' => [
-
-		'sqlite' => [
-			'driver'   => 'sqlite',
-			'database' => storage_path().'/database.sqlite',
-			'prefix'   => '',
-		],
-
-		'mysql' => [
-			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'forge'),
-			'username'  => env('DB_USERNAME', 'forge'),
-			'password'  => env('DB_PASSWORD', ''),
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-			'strict'    => false,
-		],
-
-		'pgsql' => [
+		'pgsqlProduct' => [
+			'read' => [
+		        'username' => env('DB_USERNAME', 'postgres'),
+		        'password' => env('DB_PASSWORD', 'justpikd'),
+		    ],
+		    'write' => [
+		        'username' => env('DB_USERNAME', 'postgres'),
+		        'password' => env('DB_PASSWORD', 'justpikd'),
+		    ],
+		    'database' => 'product',
 			'driver'   => 'pgsql',
 			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
 		],
-
-		'sqlsrv' => [
-			'driver'   => 'sqlsrv',
+		'pgsqlCustomer' => [
+		    'read' => [
+		        'username' => env('DB_USERNAME', 'postgres'),
+		        'password' => env('DB_PASSWORD', 'justpikd'),
+		    ],
+		    'write' => [
+		        'username' => env('DB_USERNAME', 'postgres'),
+		        'password' => env('DB_PASSWORD', 'justpikd'),
+		    ],
+		    'database' => 'customer',
+			'driver'   => 'pgsql',
 			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
+			'charset'  => 'utf8',
 			'prefix'   => '',
-		],
-
+			'schema'   => 'public',
+		]
 	],
 
 	/*

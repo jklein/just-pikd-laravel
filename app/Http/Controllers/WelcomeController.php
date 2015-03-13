@@ -30,7 +30,11 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		$product = \DB::selectOne(
+			'SELECT * from products limit 1;'
+		);
+		//dd($product);
+		return view('index', ['product' => new \ArrayIterator($product)]);
 	}
 
 }
