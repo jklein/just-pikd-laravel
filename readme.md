@@ -1,12 +1,6 @@
 Just Pikd
 =========
 
-Rules:
--------------
-* All request params should be fetched in route files, sanitized, and safely passed into controllers
-* Route files should be feature specific
-* Dependency injection is good
-
 Development Setup:
 -------------
 1. Download and install Vagrant from https://www.vagrantup.com/downloads.html
@@ -27,7 +21,7 @@ Development Setup:
 16. You can ssh to the VM using `vagrant ssh` as well.
 17. Your git working copy is automatically mapped to `/usr/share/nginx/html` as a shared directory, so you should be able to edit code and see the changes right away.
 
-Changing Development server configuration:
+Changing Development Server Configuration:
 -------------
 1. Small changes can be tested via `vagrant ssh` (the user has sudo access)
 2. To do it properly, edit the chef cookbooks in the `cookbooks/` directory of the just-pikd-chef repo, and if you need to add a cookbook or recipe edit the Vagrantfile in this repo as well (we should add roles for this later and an environment flag).
