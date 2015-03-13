@@ -1,5 +1,8 @@
 var elixir = require('laravel-elixir');
 
+require('laravel-elixir-sass-compass');
+require('laravel-elixir-browserify');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +15,31 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.compass("", "public/build/css", {
+        sass: "resources/assets/sass",
+        image: 'public/assets/images',
+        relative: true,
+        sourcemap: true
+    });
+});
+
+
+elixir(function(mix) {
+    mix.copy('resources/fonts/zocial/css', 'public/build/fonts/zocial');
+});
+
+elixir(function(mix) {
+    mix.copy('resources/assets/js/lib', 'public/build/js/lib');
+});
+
+elixir(function(mix) {
+    mix.copy('resources/assets/sass/sass-bootstrap/fonts', 'public/build/css/sass-bootstrap/fonts');
+});
+
+elixir(function(mix) {
+    mix.browserify('main.js', {
+        debug: true,
+        output: 'public/build/js',
+        rename: 'bundle.js'
+    });
 });
