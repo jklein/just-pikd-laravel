@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => 'pgsqlProduct',
+	'default' => 'product',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
 	*/
 
 	'connections' => [
-		'pgsqlProduct' => [
+		'product' => [
 			'read' => [
 		        'username' => env('DB_USERNAME', 'postgres'),
 		        'password' => env('DB_PASSWORD', 'justpikd'),
@@ -61,7 +61,7 @@ return [
 			'prefix'   => '',
 			'schema'   => 'public',
 		],
-		'pgsqlCustomer' => [
+		'customer' => [
 		    'read' => [
 		        'username' => env('DB_USERNAME', 'postgres'),
 		        'password' => env('DB_PASSWORD', 'justpikd'),
