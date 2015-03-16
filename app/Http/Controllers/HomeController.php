@@ -1,5 +1,7 @@
 <?php namespace Pikd\Http\Controllers;
 
+use Auth;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +32,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		return view('home', ['first_name' => Auth::user()->cu_first_name]);
 	}
 
 }

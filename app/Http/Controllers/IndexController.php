@@ -17,24 +17,26 @@ class IndexController extends Controller {
      * @return Response
      */
     public function handleGet() {
-        $controller = new \Pikd\Controllers\Base($app->user);
+        // $controller = new \Pikd\Controllers\Base($app->user);
 
-        $conn = $app->connections->getRead('product');
-        $products = \Pikd\Model\Product::getRandomProducts($conn, $app->so_id, 8);
+        // $conn = $app->connections->getRead('product');
+        // $products = \Pikd\Model\Product::getRandomProducts($conn, $app->so_id, 8);
 
-        $product_info_for_display = [];
-        foreach ($products as $p) {
-            $product_info_for_display[] = array_merge($p, [
-                "image_url" => \Pikd\Image::product($p['pr_ma_id'], $p['pr_gtin']),
-                "list_cost" => \Pikd\Util::formatPrice($p['list_cost']),
-                "link"      => \Pikd\Controllers\Product::getLink($p['pr_sku'], $p['pr_name']),
-            ]);
-        }
+        // $product_info_for_display = [];
+        // foreach ($products as $p) {
+        //     $product_info_for_display[] = array_merge($p, [
+        //         "image_url" => \Pikd\Image::product($p['pr_ma_id'], $p['pr_gtin']),
+        //         "list_cost" => \Pikd\Util::formatPrice($p['list_cost']),
+        //         "link"      => \Pikd\Controllers\Product::getLink($p['pr_sku'], $p['pr_name']),
+        //     ]);
+        // }
 
-        $data = [];
-        $data['products'] = new \ArrayIterator($product_info_for_display);
+        // $data = [];
+        // $data['products'] = new \ArrayIterator($product_info_for_display);
 
-        return view('index', $data);
+        //return view('index', $data);
+
+        return "Homepage";
     }
 
 }

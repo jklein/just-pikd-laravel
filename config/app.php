@@ -144,6 +144,7 @@ return [
 		'Pikd\Providers\ConfigServiceProvider',
 		'Pikd\Providers\EventServiceProvider',
 		'Pikd\Providers\RouteServiceProvider',
+		'Pikd\Providers\AuthServiceProvider',
 
 		/* 
 		 * Mustache templating

@@ -5,7 +5,6 @@
 			"folder_exclude_patterns":
 			[
 				".vagrant",
-				"vendor",
 				".sass-cache",
 				"node_modules"
 			],
