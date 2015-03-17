@@ -19,17 +19,18 @@ class IndexController extends Controller {
      * @return Response
      */
     public function handleGet() {
-        //$products = Product::first();
-        $products = Product::all()->random(8);
+        $products = \Pikd\Daos\Product::getRandomProducts(1, 8);
 
         $product_info_for_display = [];
-       foreach ($products as $p) {
-           $product_info_for_display[] = array_merge((array)$p->getAttributes(), [
-               "image_url" => \Pikd\Image::product($p->pr_ma_id, $p->pr_gtin),
-               "list_cost" => \Pikd\Util::formatPrice($p->pr_list_cost),
-               "link"      => $p->getLink(),
+        foreach ($products as $p) {
+            $prod = new Product((array)$p);
+
+            $product_info_for_display[] = array_merge((array)$p, [
+                "image_url" => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
+                "list_cost" => \Pikd\Util::formatPrice($p->list_cost),
+                "link"      => $prod->getLink(),
             ]);
-       }
+        }
 
         $data = [];
         $data['products'] = new \ArrayIterator($product_info_for_display);
