@@ -31,7 +31,7 @@ return [
 
 	'stripe' => [
 		'model'  => 'Models\Customer',
-		'secret' => '',
+		'secret' => 'sk_test_UwC9jEWOLr4MzFPsYDJLHOR4',
 	],
 
 ];
