@@ -1,5 +1,7 @@
 <?php namespace Pikd\Http\Controllers;
 
+use \Pikd\Models\Product;
+
 class IndexController extends Controller {
 
     /**
@@ -8,7 +10,7 @@ class IndexController extends Controller {
      * @return void
      */
     public function __construct() {
-        $this->middleware('guest');
+        //$this->middleware('guest');
     }
 
     /**
@@ -17,26 +19,22 @@ class IndexController extends Controller {
      * @return Response
      */
     public function handleGet() {
-        // $controller = new \Pikd\Controllers\Base($app->user);
+        //$products = Product::first();
+        $products = Product::all()->random(8);
 
-        // $conn = $app->connections->getRead('product');
-        // $products = \Pikd\Model\Product::getRandomProducts($conn, $app->so_id, 8);
+        $product_info_for_display = [];
+       foreach ($products as $p) {
+           $product_info_for_display[] = array_merge((array)$p->getAttributes(), [
+               "image_url" => \Pikd\Image::product($p->pr_ma_id, $p->pr_gtin),
+               "list_cost" => \Pikd\Util::formatPrice($p->pr_list_cost),
+               "link"      => $p->getLink(),
+            ]);
+       }
 
-        // $product_info_for_display = [];
-        // foreach ($products as $p) {
-        //     $product_info_for_display[] = array_merge($p, [
-        //         "image_url" => \Pikd\Image::product($p['pr_ma_id'], $p['pr_gtin']),
-        //         "list_cost" => \Pikd\Util::formatPrice($p['list_cost']),
-        //         "link"      => \Pikd\Controllers\Product::getLink($p['pr_sku'], $p['pr_name']),
-        //     ]);
-        // }
+        $data = [];
+        $data['products'] = new \ArrayIterator($product_info_for_display);
 
-        // $data = [];
-        // $data['products'] = new \ArrayIterator($product_info_for_display);
-
-        //return view('index', $data);
-
-        return "Homepage";
+        return view('index', $data);
     }
 
 }
