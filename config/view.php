@@ -30,4 +30,8 @@ return [
 
 	'compiled' => realpath(storage_path().'/framework/views'),
 
+	'config' => [
+		'support_email' => 'help-dev@justpikd.com',
+        'phone_number' => '1-555-555-5555',
+	],
 ];

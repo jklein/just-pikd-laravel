@@ -43,37 +43,7 @@ class Product extends Model {
         'pr_expiration_class',
     ];
 
-    protected $casts = [
-        'pr_sku_is_real_upc'        => 'boolean',
-        'pr_default_img_id'         => 'integer',
-        'pr_units_per_case'         => 'integer',
-        'pr_measurement_value'      => 'integer',
-        'pr_upc_commodity'          => 'integer',
-        'pr_upc_vendor'             => 'integer',
-        'pr_upc_case'               => 'integer',
-        'pr_upc_item'               => 'integer',
-        'pr_ma_id'                  => 'integer',
-        'pr_cat_id'                 => 'integer',
-        'pr_shelf_life_days'        => 'integer',
-        'pr_qc_check_interval_days' => 'integer',
-        'pr_bnd_id'                 => 'integer',
-        'pr_pfl_id'                 => 'integer',
-        'pr_length'                 => 'double',
-        'pr_width'                  => 'double',
-        'pr_cubic_volume'           => 'double',
-        'pr_weight'                 => 'double',
-        'pr_case_length'            => 'double',
-        'pr_case_width'             => 'double',
-        'pr_case_height'            => 'double',
-        'pr_case_weight'            => 'double',
-    ];
-
-    // Stub
     public function getLink() {
-        return self::getLinkWithData($this->pr_sku, $this->pr_name);
-    }
-
-    public static function getLinkWithData($sku, $name) {
-        return '/products/' . $sku . '/' . urlencode(str_replace('/', '', $name));
+        return \Pikd\Util::productLink($this->pr_sku, $this->pr_name);
     }
 }

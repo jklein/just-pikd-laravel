@@ -30,8 +30,11 @@ return [
 	],
 
 	'stripe' => [
-		'model'  => 'Models\Customer',
-		'secret' => 'sk_test_UwC9jEWOLr4MzFPsYDJLHOR4',
+		'model'          => 'Models\Customer',
+		'public_api_key' => 'pk_test_KegQTWJyXb8TnGwtu7CTcv6Y',
+		'secret'         => 'sk_test_UwC9jEWOLr4MzFPsYDJLHOR4',
+		'logo'           => '', // TODO: Create this
+		'site_name' 	 => 'Just Pikd',
 	],
 
 ];

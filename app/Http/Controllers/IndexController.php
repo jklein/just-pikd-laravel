@@ -1,6 +1,5 @@
 <?php namespace Pikd\Http\Controllers;
 
-use \Pikd\Models\Product;
 
 class IndexController extends Controller {
 
@@ -23,7 +22,7 @@ class IndexController extends Controller {
 
         $product_info_for_display = [];
         foreach ($products as $p) {
-            $prod = new Product((array)$p);
+            $prod = new \Pikd\Models\Product((array)$p);
 
             $product_info_for_display[] = array_merge((array)$p, [
                 "image_url" => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),

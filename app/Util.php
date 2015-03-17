@@ -24,4 +24,8 @@ class Util {
     public static function isValidSku($sku) {
         return true;
     }
+
+    public static function productLink($sku, $name) {
+        return '/products/' . $sku . '/' . urlencode(str_replace('/', '', $name));
+    }
 }

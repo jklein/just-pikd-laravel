@@ -37,7 +37,7 @@ class CartController extends Controller {
             $product_info_for_display[] = array_merge($p->getAttributes(), [
                 "image_url" => \Pikd\Image::productFromSKU($p->op_pr_sku),
                 "list_cost" => \Pikd\Util::formatPrice($p->op_list_cost),
-                "link"      => Product::getLinkWithData($p['op_pr_sku'], $p['op_product_name']),
+                "link"      => \Pikd\Util::productLink($p['op_pr_sku'], $p['op_product_name']),
                 "sub_total" => \Pikd\Util::formatPrice($p->op_list_cost * $p->op_qty),
             ]);
         }
@@ -50,6 +50,9 @@ class CartController extends Controller {
             'numeric_price' => $total_price,
             'num_products'  => count($cart_products),
         ];
+        $data['stripe_config'] = config('services.stripe');
+
+
         return view('cart', $data);
     }
 
