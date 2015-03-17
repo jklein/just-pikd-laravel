@@ -15,7 +15,7 @@
 
                     <span class="products__category">{{ ca_name }}</span>
                     <h1 class="single-product__title">{{ pr_name }}</h1>
-                    <span class="single-product__price">{{ list_cost }}</span>
+                    <span class="single-product__price">{{ list_cost_formatted }}</span>
 
                     <div class="in-stock--single-product">
                         <span class="in-stock">&bull;</span> <span class="in-stock--text">In stock</span>
@@ -39,6 +39,7 @@
                         <input type="hidden" name="pr_name" value="{{ pr_name }}">
                         <input type="hidden" name="ma_name" value="{{ ma_name }}">
                         <input type="hidden" name="list_cost" value="{{ list_cost_cents }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token }}">
                         <input type="number" value="1" min="1" name="qty" /> 
                         <button class="btn btn-primary--transition">
                             <span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-shopping-cart"></span>

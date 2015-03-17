@@ -6,6 +6,9 @@
  * @copyright   (c) 2014 G2G Market, Inc
  ********************************** 80 Columns *********************************
  */
+
+use DB;
+
 class Image {
 
     const THUMB_SIZE = "200x200";
@@ -16,11 +19,11 @@ class Image {
         return self::DOMAIN . '/g2gcdn/' . $ma_id . '/' . $gtin . '_' . $size . '.jpg';
     }
 
-    public static function productFromSKU($db, $sku, $size = self::THUMB_SIZE) {
-        $sql = 'SELECT pr_ma_id, pr_gtin from products where pr_sku = :pr_sku';
+    public static function productFromSKU($sku, $size = self::THUMB_SIZE) {
+        $sql = 'SELECT pr_ma_id, pr_gtin from products where pr_sku = ?';
 
-        $result = $db->fetchOne($sql, ['pr_sku' => $sku]);
+        $result = DB::selectOne($sql, [$sku]);
 
-        return self::product($result['pr_ma_id'], $result['pr_gtin']);
+        return self::product($result->pr_ma_id, $result->pr_gtin);
     }
 }

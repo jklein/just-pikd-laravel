@@ -16,6 +16,9 @@ Route::get('/products/{sku}/{slug?}', 'ProductController@handleGet');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('cart', 'CartController@handleGet');
+Route::post('cart', 'CartController@handlePost');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
