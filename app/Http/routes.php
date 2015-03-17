@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@handleGet');
+Route::get('/products/{sku}/{slug?}', 'ProductController@handleGet');
 
 Route::get('home', 'HomeController@index');
 

@@ -70,6 +70,6 @@ class Product extends Model {
 
     // Stub
     public function getLink() {
-        return '/products/' . $this->pr_sku . '/' . urlencode($this->pr_name);
+        return '/products/' . $this->pr_sku . '/' . urlencode(str_replace('/', '', $this->pr_name));
     }
 }

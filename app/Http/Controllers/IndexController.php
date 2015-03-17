@@ -19,7 +19,7 @@ class IndexController extends Controller {
      * @return Response
      */
     public function handleGet() {
-        $products = \Pikd\Daos\Product::getRandomProducts(1, 8);
+        $products = \Pikd\Daos\Product::getRandomProducts(config('soid'), 8);
 
         $product_info_for_display = [];
         foreach ($products as $p) {
