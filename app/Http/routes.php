@@ -18,6 +18,7 @@ Route::get('home', 'HomeController@index');
 
 Route::get('cart', 'CartController@handleGet');
 Route::post('cart', 'CartController@handlePost');
+Route::post('checkout', 'CartController@checkout');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

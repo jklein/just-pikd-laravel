@@ -51,7 +51,7 @@ class CartController extends Controller {
             'num_products'  => count($cart_products),
         ];
         $data['stripe_config'] = config('services.stripe');
-
+        $data['csrf_token'] = csrf_token();
 
         return view('cart', $data);
     }
@@ -79,6 +79,32 @@ class CartController extends Controller {
         ]);
         $product->op_qty += $qty;
         $product->save();
+
+        return redirect('cart');
+    }
+
+    public function checkout(Request $request) {
+        // Get the details submitted by the form
+        $token = $request->input('stripeToken');
+        $amt   = $request->input('amount');
+        $desc  = $request->input('stripeEmail');
+
+        // Create the charge on Stripe's servers - this will charge the user's card
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
+
+        // Create the charge on Stripe's servers - this will charge the user's card
+        try {
+            $charge = \Stripe\Charge::create([
+                "amount"      => $amt,
+                "currency"    => "usd",
+                "source"      => $token,
+                "description" => $desc,
+            ]);
+        } catch(\Stripe\Error\Card $e) {
+          // The card has been declined
+        }
+
+        \Session::flash('success', 'Order Placed!');
 
         return redirect('cart');
     }
