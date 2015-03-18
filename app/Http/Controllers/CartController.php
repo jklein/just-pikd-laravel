@@ -8,7 +8,7 @@ use \Illuminate\Http\Request;
 use Auth;
 
 class CartController extends Controller {
-    
+
     public function handleGet() {
         $data['title'] = sprintf("%s | Pikd", 'Shopping Cart');
 
@@ -103,7 +103,7 @@ class CartController extends Controller {
 
         // Convert the basket to a pending pickup
         $order = Order::find($or_id);
-        $order->or_status = \Pikd\Enums\ORDER_STATUS::PENDING_PICKUP;
+        $order->or_status = \Pikd\Enums\ORDER_STATUS::PROCESSING;
         $order->save();
 
         \Session::flash('success', 'Order Placed!');

@@ -12,6 +12,7 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		'Pikd\Console\Commands\Inspire',
+		'Pikd\Console\Commands\GenerateEnums',
 	];
 
 	/**

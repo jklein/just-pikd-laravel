@@ -22,5 +22,6 @@ class ORDER_STATUS {
 	const PENDING_PICKUP = 'Pending Pickup';
 	const COMPLETE = 'Complete';
 	const CANCELLED = 'Cancelled';
+	const PROCESSING = 'Processing';
 
 }
