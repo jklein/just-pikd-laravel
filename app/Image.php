@@ -24,6 +24,6 @@ class Image {
 
         $result = DB::selectOne($sql, [$sku]);
 
-        return self::product($result->pr_ma_id, $result->pr_gtin);
+        return self::product($result['pr_ma_id'], $result['pr_gtin']);
     }
 }
