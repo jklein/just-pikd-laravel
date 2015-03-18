@@ -10,6 +10,7 @@
         <div class="top__menu">
           <ul class="nav nav-pills">
             {{# logged_in }}
+              <li>Hello {{ name }}!</li>
               <li><a href="/logout" role="button" data-toggle="modal">Logout</a></li>
               <li class="dropdown"><a href="/account">My account</a></li>
             {{/ logged_in }}
@@ -23,7 +24,6 @@
     </div>
   </div>
 </div>
-
 
 <header class="header">
   <div class="container">

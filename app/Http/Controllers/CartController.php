@@ -8,16 +8,7 @@ use \Illuminate\Http\Request;
 use Auth;
 
 class CartController extends Controller {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct() {
-        $this->middleware('auth');
-    }
-
+    
     public function handleGet() {
         $data['title'] = sprintf("%s | Pikd", 'Shopping Cart');
 
@@ -26,6 +17,10 @@ class CartController extends Controller {
             config('soid'),
             \Pikd\Enums\ORDER_STATUS::BASKET
         );
+
+        if (empty($cart_products)) {
+            return view('cart_empty');
+        }
 
         $cart = new Order((array)$cart_products[0]);
         foreach ($cart_products as $product) {
@@ -52,6 +47,7 @@ class CartController extends Controller {
         ];
         $data['stripe_config'] = config('services.stripe');
         $data['csrf_token'] = csrf_token();
+        $data['or_id'] = $cart->or_id;
 
         return view('cart', $data);
     }
@@ -88,21 +84,27 @@ class CartController extends Controller {
         $token = $request->input('stripeToken');
         $amt   = $request->input('amount');
         $desc  = $request->input('stripeEmail');
+        $or_id = $request->input('or_id');
 
         // Create the charge on Stripe's servers - this will charge the user's card
         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
         // Create the charge on Stripe's servers - this will charge the user's card
         try {
-            $charge = \Stripe\Charge::create([
-                "amount"      => $amt,
-                "currency"    => "usd",
-                "source"      => $token,
-                "description" => $desc,
-            ]);
+            // $charge = \Stripe\Charge::create([
+            //     "amount"      => $amt,
+            //     "currency"    => "usd",
+            //     "source"      => $token,
+            //     "description" => $desc,
+            // ]);
         } catch(\Stripe\Error\Card $e) {
-          // The card has been declined
+            \Session::flash('failure', 'Your card was declined');
         }
+
+        // Convert the basket to a pending pickup
+        $order = Order::find($or_id);
+        $order->or_status = \Pikd\Enums\ORDER_STATUS::PENDING_PICKUP;
+        $order->save();
 
         \Session::flash('success', 'Order Placed!');
 

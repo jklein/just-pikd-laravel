@@ -4,8 +4,9 @@ require '../app/vendor/autoload.php';
 
 $test_mode = isset($argv[1]) && $argv[1] = 'test';
 
-$connections = \Pikd\DB::getConnections();
 
+// TODO - Make this work in Laravel world
+$connections = \Pikd\DB::getConnections();
 $product_db = $connections->getRead('product');
 $customer_db = $connections->getRead('customer');
 

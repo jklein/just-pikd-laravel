@@ -11,6 +11,7 @@ class Order extends Model {
     public $products = [];
 
     protected $fillable = [
+        'or_id',
         'or_so_id',
         'or_cu_id',
         'or_status',

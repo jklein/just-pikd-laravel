@@ -46,6 +46,7 @@
         <form action="/checkout" method="post">
             <input type="hidden" name="amount" value="{{ cart_totals.numeric_price }}">
             <input type="hidden" name="_token" value="{{ csrf_token }}">
+            <input type="hidden" name="or_id" value="{{ or_id }}">
             <script
               src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="{{ stripe_config.public_api_key }}"

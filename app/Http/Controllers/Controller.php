@@ -8,4 +8,12 @@ abstract class Controller extends BaseController {
 
 	use DispatchesCommands, ValidatesRequests;
 
+    public function getFlashData() {
+        $ret = [];
+        foreach (\Session::get('flash.old') as $key) {
+            $ret[$key] = \Session::get($key);
+        }
+
+        return $ret;
+    }
 }
