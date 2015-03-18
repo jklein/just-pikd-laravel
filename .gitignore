@@ -4,3 +4,4 @@
 .sass-cache
 *.map
 public/build
+.vagrant
