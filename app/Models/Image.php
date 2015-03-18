@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model {
+class Image extends Model {
 
     protected $primaryKey = 'img_id';
     protected $connection = 'product';

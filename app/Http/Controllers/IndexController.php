@@ -22,11 +22,11 @@ class IndexController extends Controller {
 
         $product_info_for_display = [];
         foreach ($products as $p) {
-            $prod = new \Pikd\Models\Product((array)$p);
+            $prod = new \Pikd\Models\Product($p);
 
-            $product_info_for_display[] = array_merge((array)$p, [
+            $product_info_for_display[] = array_merge($p, [
                 "image_url" => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
-                "list_cost" => \Pikd\Util::formatPrice($p->list_cost),
+                "list_cost" => \Pikd\Util::formatPrice($p['list_cost']),
                 "link"      => $prod->getLink(),
             ]);
         }

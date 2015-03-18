@@ -25,6 +25,7 @@ class Product {
                     where store_id = ?
                     and pr_sku = ?';
 
+        // TODO handle null case
         return DB::select($sql, [$so_id, $sku])[0];
     }
 }
