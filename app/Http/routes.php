@@ -20,10 +20,13 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('cart', 'CartController@handleGet');
     Route::post('cart', 'CartController@handlePost');
-    
+
     Route::post('checkout', 'CartController@checkout');
 
     Route::get('account', 'AccountController@handleGet');
+
+    Route::resource('account/orders', 'OrderController', 
+                    ['only' => ['index', 'show']]);
 });
 
 Route::get('util', 'UtilController@handleGet');
