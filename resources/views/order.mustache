@@ -7,26 +7,23 @@
     <div class="container  push-down-30">
         <div class="row">
             <div class="col-xs-12">
-                <h1 class="center"><span class="light">Order</span> History</h1>
+                <h1 class="center"><span class="light">Order</span> #{{ order.or_id }}</h1>
                 
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Order ID</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Cost</th>
+                            <th class="product-remove"></th>
+                            <th class="product-thumbnail"></th>
+                            <th class="product-name">Product</th>
+                            <th class="product-price">Price</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="product-subtotal">Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {{# orders }}
-                        <tr>
-                            <td><a href="/account/orders/{{ id }}">Order #{{ id }}</a></td>
-                            <td>{{ date }}</td>
-                            <td>{{ status }}</td>
-                            <td>{{ cost }}</td>
-                        </tr>
-                    {{/ orders }}
+                    {{# products }}
+                        {{> modules/cart_product_row }}
+                    {{/ products }}
                     </tbody>
                 </table>
             </div>
