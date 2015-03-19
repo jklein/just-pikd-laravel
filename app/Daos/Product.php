@@ -28,4 +28,18 @@ class Product {
         // TODO handle null case
         return DB::select($sql, [$so_id, $sku])[0];
     }
+
+    public static function search($query) {
+        $sql = "SELECT p.pr_name, pr_ma_id, pr_gtin, 
+                cat_name, list_cost
+                from search_index 
+                join products p on search_index.pr_sku = p.pr_sku
+                join products_stores ps on search_index.pr_sku = ps.sku
+                join categories on p.pr_cat_id = cat_id
+                join manufacturers on p.pr_ma_id = ma_id
+                where document @@ plainto_tsquery('english', '" . $query . "')
+                order by ts_rank(document, plainto_tsquery('english', '" . $query . "')) desc;";
+
+        return DB::select($sql);
+    }
 }

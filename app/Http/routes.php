@@ -16,6 +16,8 @@ Route::get('/products/{sku}/{slug?}', 'ProductController@handleGet');
 
 Route::get('home', 'HomeController@index');
 
+Route::post('search', 'SearchController@handleSearch');
+
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('cart', 'CartController@handleGet');

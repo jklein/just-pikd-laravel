@@ -16,4 +16,19 @@ abstract class Controller extends BaseController {
 
         return $ret;
     }
+
+    public function formatProductDataForDisplay($products) {
+        $product_info_for_display = [];
+        foreach ($products as $p) {
+            $prod = new \Pikd\Models\Product($p);
+
+            $product_info_for_display[] = array_merge($p, [
+                "image_url" => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
+                "list_cost" => \Pikd\Util::formatPrice($p['list_cost']),
+                "link"      => $prod->getLink(),
+            ]);
+        }
+
+        return new \ArrayIterator($product_info_for_display);
+    }
 }

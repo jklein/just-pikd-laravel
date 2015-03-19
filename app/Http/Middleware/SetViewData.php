@@ -18,6 +18,7 @@ class SetViewData {
         }
         
         view()->share('logged_in', \Auth::check());
+        view()->share('csrf_token', csrf_token());
             
         return $next($request);
     }

@@ -28,7 +28,7 @@
 <header class="header">
   <div class="container">
     <div class="row">
-      <div class="col-xs-10  col-md-3">
+      <div class="col-xs-10  col-md-2">
         <div class="header-logo">
           <a href="/"><img alt="Logo" src="/assets/images/logo.png" width="200" height="90"></a>
         </div>
@@ -44,7 +44,7 @@
           </button>
         </div>
       </div>
-      <div class="col-xs-12  col-md-7">
+      <div class="col-xs-12  col-md-8">
         <nav class="navbar  navbar-default" role="navigation">
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse  navbar-collapse" id="collapsible-navbar">
@@ -66,18 +66,17 @@
                 </ul>
               </li>
               <li class="hidden-xs  hidden-sm">
-                <a href="#" class="js--toggle-search-mode"><span class="glyphicon  glyphicon-search  glyphicon-search--nav"></span></a>
+                <form action="/search" method="POST" class="" role="form">
+                  <input type="hidden" name="_token" value="{{ csrf_token }}">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q">
+                    <span class="input-group-addon">
+                      <button type="submit" class="mobile-navbar-form__appended-btn"><span class="glyphicon  glyphicon-search  glyphicon-search--nav"></span></button>
+                    </span>
+                  </div>
+                </form>
               </li>
             </ul>
-            <!-- search for mobile devices -->
-            <form action="#" method="post" class="visible-xs  visible-sm  mobile-navbar-form" role="form">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon">
-                  <button type="submit" class="mobile-navbar-form__appended-btn"><span class="glyphicon  glyphicon-search  glyphicon-search--nav"></span></button>
-                </span>
-              </div>
-            </form>
             <div class="mobile-cart  visible-xs  visible-sm  push-down-15">
               <span class="header-cart__text--price"><span class="header-cart__text">CART</span> $49.35</span>
               <a href="cart.html" class="header-cart__items">

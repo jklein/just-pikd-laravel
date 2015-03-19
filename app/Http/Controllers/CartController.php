@@ -46,7 +46,6 @@ class CartController extends Controller {
             'num_products'  => count($cart_products),
         ];
         $data['stripe_config'] = config('services.stripe');
-        $data['csrf_token'] = csrf_token();
         $data['or_id'] = $cart->or_id;
 
         return view('cart', $data);

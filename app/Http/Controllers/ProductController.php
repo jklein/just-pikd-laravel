@@ -19,7 +19,6 @@ class ProductController extends Controller {
         $p['image_src'] = \Pikd\Image::product($p['pr_ma_id'], $p['pr_gtin'], \Pikd\Image::FULL_SIZE);
         $p['list_cost_formatted'] = \Pikd\Util::formatPrice($p['list_cost']);
         $p['list_cost_cents'] = $p['list_cost'];
-        $p['csrf_token'] = csrf_token();
 
         return view('product', $p);
     }
