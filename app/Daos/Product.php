@@ -30,6 +30,9 @@ class Product {
     }
 
     public static function search($query) {
+        // TODO - Injection potential. 
+        // For some reason the binding didn't work for multi-word queries
+        // So I just did the naiive thing for now
         $sql = "SELECT p.pr_name, pr_ma_id, pr_gtin, 
                 cat_name, list_cost
                 from search_index 

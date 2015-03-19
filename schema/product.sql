@@ -1546,7 +1546,7 @@ ALTER SEQUENCE products_suppliers_psl_id_seq OWNED BY products_suppliers.psl_id;
 CREATE MATERIALIZED VIEW search_index AS
  SELECT products.pr_sku,
     products.pr_name,
-    (((setweight(to_tsvector('english'::regconfig, (products.pr_name)::text), 'A'::"char") || setweight(to_tsvector('english'::regconfig, products.pr_description), 'C'::"char")) || setweight(to_tsvector('english'::regconfig, (categories.cat_name)::text), 'B'::"char")) || setweight(to_tsvector('english'::regconfig, (manufacturers.ma_name)::text), 'B'::"char")) AS document
+    (((setweight(to_tsvector('english'::regconfig, (products.pr_name)::text), 'B'::"char") || setweight(to_tsvector('english'::regconfig, products.pr_description), 'C'::"char")) || setweight(to_tsvector('english'::regconfig, (categories.cat_name)::text), 'A'::"char")) || setweight(to_tsvector('english'::regconfig, (manufacturers.ma_name)::text), 'B'::"char")) AS document
    FROM ((products
      JOIN manufacturers ON ((manufacturers.ma_id = products.pr_ma_id)))
      JOIN categories ON ((categories.cat_id = products.pr_cat_id)))
