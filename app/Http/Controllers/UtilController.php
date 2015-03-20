@@ -19,12 +19,13 @@ class UtilController extends Controller {
     public function handleGet() {
         $data = [];
 
-        // \Session::flash('info', 'Info Message');
-        // \Session::flash('success', 'Success Message');
-        // \Session::flash('error', 'Error Message');
-        // \Session::flash('warning', 'Warning Message');
+        \Session::flash('default', 'Default Message');
+        \Session::flash('info', 'Info Message');
+        \Session::flash('dark', 'Info Message');
+        \Session::flash('success', 'Success Message');
+        \Session::flash('warning', 'Warning Message');
+        \Session::flash('danger', ['Danger Message', 'A second danger Message']);
 
-        $data['flash'] = $this->getFlashData();
         return view('util', $data);
     }
 
