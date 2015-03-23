@@ -76,7 +76,7 @@ class GenerateModels extends Command {
      
         $columns = \DB::connection($db)->select($sql, [$table_name]);
 
-        $model_name = $this->make_class_name($table_name);
+        $model_name = $this->makeClassName($table_name);
 
         $model = '<?php namespace Pikd\Models;' . PHP_EOL . PHP_EOL;
         $model .= 'use Illuminate\Database\Eloquent\Model;' . PHP_EOL . PHP_EOL;
@@ -94,7 +94,7 @@ class GenerateModels extends Command {
     }
 
 
-    private function make_class_name($table_name) {
+    private function makeClassName($table_name) {
         $name = str_replace(' ', '', ucwords(str_replace('_', ' ', $table_name)));
 
         if (substr($name, -3) === 'ies') {
