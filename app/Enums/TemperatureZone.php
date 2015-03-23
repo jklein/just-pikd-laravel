@@ -5,8 +5,8 @@
  * DO NOT EDIT DIRECTLY!!!
  * TO MODIFY, EDIT scripts/generate_enums.php
  * ==========================================
- *
- * EXPIRATION_CLASS Enum
+ * 
+ * TemperatureZone Enum 
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -15,9 +15,11 @@
 
 namespace Pikd\Enums;
 
-class EXPIRATION_CLASS {
+class TemperatureZone {
 
-    const A = 'A';
-    const B = 'B';
-    const C = 'C';
+	const FROZEN = 'frozen';
+	const COLD = 'cold';
+	const FRESH = 'fresh';
+	const DRY = 'dry';
+
 }

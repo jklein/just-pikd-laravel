@@ -5,8 +5,8 @@
  * DO NOT EDIT DIRECTLY!!!
  * TO MODIFY, EDIT scripts/generate_enums.php
  * ==========================================
- *
- * ADDRESS_TYPE Enum
+ * 
+ * OrderStatus Enum 
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -15,8 +15,13 @@
 
 namespace Pikd\Enums;
 
-class ADDRESS_TYPE {
+class OrderStatus {
 
-    const BILLING = 'Billing';
-    const SHIPPING = 'Shipping';
+	const BASKET = 'Basket';
+	const SHOPPING_LIST = 'Shopping List';
+	const PENDING_PICKUP = 'Pending Pickup';
+	const COMPLETE = 'Complete';
+	const CANCELLED = 'Cancelled';
+	const PROCESSING = 'Processing';
+
 }

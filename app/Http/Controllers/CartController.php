@@ -15,7 +15,7 @@ class CartController extends Controller {
         $cart_products = Customer::fetchOrderAndProducts([
             'cu_id' => \Auth::user()->cu_id,
             'so_id' => config('soid'),
-            'status' => \Pikd\Enums\ORDER_STATUS::BASKET,
+            'status' => \Pikd\Enums\OrderStatus::BASKET,
         ]);
 
         if (empty($cart_products)) {
@@ -62,7 +62,7 @@ class CartController extends Controller {
         $cart = Customer::createOrFetchOrder(
             $cu_id,
             config('soid'),
-            \Pikd\Enums\ORDER_STATUS::BASKET
+            \Pikd\Enums\OrderStatus::BASKET
         );
 
         $product = OrderProduct::firstOrNew([
@@ -102,7 +102,7 @@ class CartController extends Controller {
 
         // Convert the basket to a pending pickup
         $order                  = Order::find($or_id);
-        $order->or_status       = \Pikd\Enums\ORDER_STATUS::PROCESSING;
+        $order->or_status       = \Pikd\Enums\OrderStatus::PROCESSING;
         $order->or_submitted_at = new \DateTime;
         $order->or_updated_at   = new \DateTime;
         $order->or_total_cost   = $amt;

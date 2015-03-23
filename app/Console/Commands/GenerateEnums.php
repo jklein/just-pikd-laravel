@@ -82,7 +82,7 @@ class GenerateEnums extends Command {
         // This is a string like {foo,bar}
         $values = $results[0]['enum_range'];
 
-        $enum_name = strtoupper($enum);
+        $enum_name = str_replace(' ', '', ucwords(str_replace('_', ' ', $enum)));
 
         // Process the string
         $values = explode(',', str_replace('"', '', substr($values, 1, -1)));
