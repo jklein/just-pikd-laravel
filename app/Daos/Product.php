@@ -41,7 +41,7 @@ class Product {
                 join categories on p.pr_cat_id = cat_id
                 join manufacturers on p.pr_ma_id = ma_id
                 where document @@ plainto_tsquery('english', '" . $query . "')
-                order by ts_rank(document, plainto_tsquery('english', '" . $query . "')) desc;";
+                order by cat_name, ts_rank(document, plainto_tsquery('english', '" . $query . "')) desc;";
 
         return DB::select($sql);
     }

@@ -66,9 +66,14 @@
       </div>
       <hr class="shop__divider">
       <div class="row  js--isotope-container">
-        {{# products }}
-          {{> modules/product_card }}
-        {{/ products }}
+        {{# categories }}
+          <div style="width:100%" class="clearfix">
+            <h1>{{ name }}</h1>
+            {{# products }}
+              {{> modules/product_card }}
+            {{/ products }}
+          </div>
+        {{/ categories }}
         <div class="clearfix  hidden-xs"></div>
       </div>
       <hr class="shop__divider">
