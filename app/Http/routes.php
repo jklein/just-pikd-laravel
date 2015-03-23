@@ -26,15 +26,19 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('checkout', 'CartController@checkout');
 
     Route::get('account', 'AccountController@handleGet');
+    Route::post('account', 'AccountController@handlePost');
 
-    Route::resource('account/orders', 'OrderController', 
-                    ['only' => ['index', 'show']]);
+    Route::resource(
+        'account/orders',
+        'OrderController',
+        ['only' => ['index', 'show']]
+    );
 });
 
 Route::get('util', 'UtilController@handleGet');
 
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);

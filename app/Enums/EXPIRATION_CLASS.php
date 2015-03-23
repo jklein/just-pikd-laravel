@@ -5,8 +5,8 @@
  * DO NOT EDIT DIRECTLY!!!
  * TO MODIFY, EDIT scripts/generate_enums.php
  * ==========================================
- * 
- * EXPIRATION_CLASS Enum 
+ *
+ * EXPIRATION_CLASS Enum
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -17,8 +17,7 @@ namespace Pikd\Enums;
 
 class EXPIRATION_CLASS {
 
-	const A = 'A';
-	const B = 'B';
-	const C = 'C';
-
+    const A = 'A';
+    const B = 'B';
+    const C = 'C';
 }

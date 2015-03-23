@@ -11,12 +11,12 @@
           <ul class="nav nav-pills">
             {{# logged_in }}
               <li>Hello {{ name }}!</li>
-              <li><a href="/logout" role="button" data-toggle="modal">Logout</a></li>
+              <li><a href="/auth/logout" role="button" data-toggle="modal">Logout</a></li>
               <li class="dropdown"><a href="/account">My account</a></li>
             {{/ logged_in }}
             {{^ logged_in }}
-              <li><a href="#registerModal" role="button" data-toggle="modal">Register</a></li>
-              <li class="dropdown"><a href="#loginModal" role="button" data-toggle="modal">Login</a></li>
+              <li><a href="/auth/register" role="button" data-toggle="modal">Register</a></li>
+              <li class="dropdown"><a href="/auth/login" role="button" data-toggle="modal">Login</a></li>
             {{/ logged_in }}
           </ul>
         </div>

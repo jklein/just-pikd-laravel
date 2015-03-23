@@ -30,5 +30,4 @@ class Order extends Model {
         'or_zip_code',
         'or_phone',
     ];
-
 }

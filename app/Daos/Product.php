@@ -4,7 +4,7 @@ use \DB;
 
 class Product {
 
-    // This should not get called in production 
+    // This should not get called in production
     public static function getRandomProducts($so_id, $num) {
         $sql = 'SELECT * from products 
                     join products_stores on pr_sku = sku
@@ -30,7 +30,7 @@ class Product {
     }
 
     public static function search($query) {
-        // TODO - Injection potential. 
+        // TODO - Injection potential.
         // For some reason the binding didn't work for multi-word queries
         // So I just did the naiive thing for now
         $sql = "SELECT p.pr_name, pr_ma_id, pr_gtin, 

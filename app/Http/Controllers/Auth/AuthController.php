@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller {
 
-	/*
+    /*
 	|--------------------------------------------------------------------------
 	| Registration & Login Controller
 	|--------------------------------------------------------------------------
@@ -19,53 +19,51 @@ class AuthController extends Controller {
 	|
 	*/
 
-	use AuthenticatesAndRegistersUsers;
+    use AuthenticatesAndRegistersUsers;
 
-	/**
-	 * Create a new authentication controller instance.
-	 *
-	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
-	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
-	 * @return void
-	 */
-	public function __construct(Guard $auth, Registrar $registrar)
-	{
-		$this->auth = $auth;
-		$this->registrar = $registrar;
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @param  \Illuminate\Contracts\Auth\Guard  $auth
+     * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
+     * @return void
+     */
+    public function __construct(Guard $auth, Registrar $registrar)
+    {
+        $this->auth = $auth;
+        $this->registrar = $registrar;
 
-		$this->middleware('guest', ['except' => 'getLogout']);
-	}
+        $this->middleware('guest', ['except' => 'getLogout']);
+    }
 
-	/**
-	 * Handle a login request to the application.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
-	public function postLogin(Request $request)
-	{
-		$this->validate($request, [
-			'email' => 'required|email', 'password' => 'required',
-		]);
+    /**
+     * Handle a login request to the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email', 'password' => 'required',
+        ]);
 
-		$credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');
 
-		$credentials = [
-			'cu_email'    => $credentials['email'],
-			'cu_password' => $credentials['password'],
-		];
+        $credentials = [
+            'cu_email'    => $credentials['email'],
+            'cu_password' => $credentials['password'],
+        ];
 
 
-		if ($this->auth->attempt($credentials, $request->has('remember')))
-		{
-			return redirect()->intended($this->redirectPath());
-		}
+        if ($this->auth->attempt($credentials, $request->has('remember'))) {
+            return redirect()->intended($this->redirectPath());
+        }
 
-		return redirect($this->loginPath())
-					->withInput($request->only('email', 'remember'))
-					->withErrors([
-						'email' => $this->getFailedLoginMessage(),
-					]);
-	}
-
+        return redirect($this->loginPath())
+                    ->withInput($request->only('email', 'remember'))
+                    ->withErrors([
+                        'email' => $this->getFailedLoginMessage(),
+                    ]);
+    }
 }

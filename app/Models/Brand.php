@@ -7,5 +7,4 @@ class Brand extends Model {
     protected $primaryKey = 'bnd_id';
     protected $connection = 'product';
     public $timestamps = false;
-
 }

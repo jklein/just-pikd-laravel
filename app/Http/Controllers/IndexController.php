@@ -1,6 +1,5 @@
 <?php namespace Pikd\Http\Controllers;
 
-
 class IndexController extends Controller {
 
     /**
@@ -24,5 +23,4 @@ class IndexController extends Controller {
 
         return view('index', $data);
     }
-
 }

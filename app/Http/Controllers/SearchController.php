@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller {
 
-	public function handleSearch(Request $r) {
+    public function handleSearch(Request $r) {
         $query = $r->input('q');
 
         $products = \Pikd\Daos\Product::search($query);
@@ -32,5 +32,4 @@ class SearchController extends Controller {
 
         return view('search_results', $data);
     }
-
 }

@@ -18,5 +18,4 @@ class OrderProduct extends Model {
         'op_date_added',
         'op_date_updated',
     ];
-
 }

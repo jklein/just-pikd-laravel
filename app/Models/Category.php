@@ -7,5 +7,4 @@ class Category extends Model {
     protected $primaryKey = 'cat_id';
     protected $connection = 'product';
     public $timestamps = false;
-
 }

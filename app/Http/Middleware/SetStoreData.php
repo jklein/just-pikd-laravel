@@ -18,5 +18,4 @@ class SetStoreData {
             
         return $next($request);
     }
-
 }

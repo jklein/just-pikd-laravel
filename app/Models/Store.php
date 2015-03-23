@@ -7,5 +7,4 @@ class Store extends Model {
     protected $primaryKey = 'so_id';
     protected $connection = 'product';
     public $timestamps = false;
-
 }

@@ -13,7 +13,7 @@ class CartController extends Controller {
         $data['title'] = sprintf("%s | Pikd", 'Shopping Cart');
 
         $cart_products = Customer::fetchOrderAndProducts([
-            'cu_id' => \Auth::user()->cu_id, 
+            'cu_id' => \Auth::user()->cu_id,
             'so_id' => config('soid'),
             'status' => \Pikd\Enums\ORDER_STATUS::BASKET,
         ]);
@@ -60,8 +60,8 @@ class CartController extends Controller {
         $cu_id     = Auth::user()->cu_id;
 
         $cart = Customer::createOrFetchOrder(
-            $cu_id, 
-            config('soid'), 
+            $cu_id,
+            config('soid'),
             \Pikd\Enums\ORDER_STATUS::BASKET
         );
 
@@ -96,7 +96,7 @@ class CartController extends Controller {
             //     "source"      => $token,
             //     "description" => $email,
             // ]);
-        } catch(\Stripe\Error\Card $e) {
+        } catch (\Stripe\Error\Card $e) {
             \Session::flash('failure', 'Your card was declined');
         }
 
@@ -123,5 +123,4 @@ class CartController extends Controller {
 
         return $total;
     }
-
 }

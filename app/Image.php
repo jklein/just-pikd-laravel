@@ -1,4 +1,5 @@
 <?php namespace Pikd;
+
 /**
  * Functions for generating image paths
  *

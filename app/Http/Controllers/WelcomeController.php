@@ -2,7 +2,7 @@
 
 class WelcomeController extends Controller {
 
-	/*
+    /*
 	|--------------------------------------------------------------------------
 	| Welcome Controller
 	|--------------------------------------------------------------------------
@@ -13,28 +13,27 @@ class WelcomeController extends Controller {
 	|
 	*/
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('guest');
-	}
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$product = \DB::selectOne(
-			'SELECT * from products limit 1;'
-		);
-		//dd($product);
-		return view('index', ['product' => new \ArrayIterator($product)]);
-	}
-
+    /**
+     * Show the application welcome screen to the user.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $product = \DB::selectOne(
+            'SELECT * from products limit 1;'
+        );
+        //dd($product);
+        return view('index', ['product' => new \ArrayIterator($product)]);
+    }
 }

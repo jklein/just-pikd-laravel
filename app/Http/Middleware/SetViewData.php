@@ -30,5 +30,4 @@ class SetViewData {
 
         return $next($request);
     }
-
 }

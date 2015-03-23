@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
         $data['title'] = sprintf("%s | Pikd", 'Order History');
 
         $orders = Order::where('or_cu_id', '=', \Auth::user()->cu_id)->get();
@@ -36,27 +36,27 @@ class OrderController extends Controller {
         }
 
         return view('orders', $data);
-	}
+    }
 
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
         $order = Order::find($id);
         $data['order'] = $order->getAttributes();
 
         $products = \Pikd\Daos\Customer::fetchOrderAndProducts([
-        	'or_id' => $id,
+            'or_id' => $id,
         ]);
 
         $order = new Order($products[0]);
         foreach ($products as $product) {
-        	$p = new OrderProduct($product);;
+            $p = new OrderProduct($product);
             $order->products[] = $p;
         }
 
@@ -73,6 +73,5 @@ class OrderController extends Controller {
         $data['products'] = new \ArrayIterator($product_info_for_display);
 
         return view('order', $data);
-	}
-
+    }
 }

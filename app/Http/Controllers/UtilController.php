@@ -1,6 +1,5 @@
 <?php namespace Pikd\Http\Controllers;
 
-
 class UtilController extends Controller {
 
     /**
@@ -28,5 +27,4 @@ class UtilController extends Controller {
 
         return view('util', $data);
     }
-
 }
