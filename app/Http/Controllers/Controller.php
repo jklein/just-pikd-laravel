@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Validation\Validator;
 
 abstract class Controller extends BaseController {
 
@@ -30,5 +31,16 @@ abstract class Controller extends BaseController {
         }
 
         return new \ArrayIterator($product_info_for_display);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function formatValidationErrors(Validator $validator) {
+        $errors = $validator->errors()->all();
+        
+        \Session::flash('danger', $errors);
+
+        return $errors;
     }
 }

@@ -31,7 +31,7 @@ class AccountController extends Controller {
                 'email'           => 'required|email',
                 'old_password'    => 'required',
                 'new_password'    => 'required',
-                'repeat_password' => 'required|same:old_password',
+                'repeat_password' => 'required|same:new_password',
             ]);
 
             $credentials = [
@@ -40,12 +40,12 @@ class AccountController extends Controller {
             ];
 
             if (!$this->auth->attempt($credentials, false, false)) {
-                return redirect(403);
+                \Session::flash('danger', 'Auth failed!');
+                return redirect('account');
             }
 
-
-            $customer = Customer::find(\Auth::user()->cu_id);
-            $customer->cu_password = bcrypt($pw);
+            $customer = \Pikd\Models\Customer::find(\Auth::user()->cu_id);
+            $customer->cu_password = bcrypt($r->input('new_password'));
             $customer->save();
 
             \Session::flash('success', 'Password updated successfully!');

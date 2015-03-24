@@ -2,13 +2,12 @@
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class Customer extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-    use Authenticatable, CanResetPassword;
+    use Authenticatable;
 
     protected $primaryKey = 'cu_id';
     protected $connection = 'customer';
@@ -52,6 +51,16 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
     public function getRememberTokenName()
     {
         return 'cu_persist_code';
+    }
+
+    /**
+     * Get the e-mail address where password reset links are sent.
+     *
+     * @return string
+     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->attributes['cu_email'];
     }
 
     /**
