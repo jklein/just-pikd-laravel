@@ -7,7 +7,10 @@
     <div class="container  push-down-30">
         <div class="row">
             <div class="col-xs-12">
-                <h1 class="center"><span class="light">Order</span> #{{ order.or_id }}</h1>
+                <h1 class="center">
+                    <span class="light">Order</span> 
+                    #{{ order.or_id }} - {{ order.or_status }} (Total Cost: {{ order.cost }})
+                </h1>
                 
                 <table class="table">
                     <thead>

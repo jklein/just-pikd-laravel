@@ -85,17 +85,16 @@ class CartController extends Controller {
         $email = $request->input('stripeEmail');
         $or_id = $request->input('or_id');
 
-        // Create the charge on Stripe's servers - this will charge the user's card
-        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
-        // Create the charge on Stripe's servers - this will charge the user's card
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
         try {
-            // $charge = \Stripe\Charge::create([
-            //     "amount"      => $amt,
-            //     "currency"    => "usd",
-            //     "source"      => $token,
-            //     "description" => $email,
-            // ]);
+            // Create the charge on Stripe's servers - this will charge the user's card
+            $charge = \Stripe\Charge::create([
+                "amount"      => $amt,
+                "currency"    => "usd",
+                "source"      => $token,
+                "description" => $email,
+            ]);
         } catch (\Stripe\Error\Card $e) {
             \Session::flash('failure', 'Your card was declined');
         }
@@ -112,7 +111,7 @@ class CartController extends Controller {
 
         \Session::flash('success', 'Order Placed!');
 
-        return redirect('cart');
+        return redirect('account/orders/' . $or_id);
     }
 
     public function getTotalPriceInCents($products){

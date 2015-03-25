@@ -49,6 +49,7 @@ class OrderController extends Controller {
     {
         $order = Order::find($id);
         $data['order'] = $order->getAttributes();
+        $data['order']['cost'] = \Pikd\Util::formatPrice($order->or_total_cost);
 
         $products = \Pikd\Daos\Customer::fetchOrderAndProducts([
             'or_id' => $id,
