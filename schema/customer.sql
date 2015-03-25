@@ -109,6 +109,27 @@ ALTER TYPE order_status OWNER TO postgres;
 COMMENT ON TYPE order_status IS 'States that an order can be in from the customer perspective (not the WMS perspective)';
 
 
+--
+-- Name: referral_status; Type: TYPE; Schema: public; Owner: postgres
+--
+
+CREATE TYPE referral_status AS ENUM (
+    'Referred',
+    'Created Account',
+    'Placed An Order',
+    'Credited'
+);
+
+
+ALTER TYPE referral_status OWNER TO postgres;
+
+--
+-- Name: TYPE referral_status; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TYPE referral_status IS 'All of the states a referral can be in';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -451,6 +472,57 @@ ALTER SEQUENCE orders_or_id_seq OWNED BY orders.or_id;
 
 
 --
+-- Name: referrals; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE referrals (
+    ref_id integer NOT NULL,
+    ref_cu_id integer NOT NULL,
+    ref_email character varying(255) NOT NULL,
+    ref_status referral_status NOT NULL,
+    ref_created_at timestamp with time zone DEFAULT now() NOT NULL,
+    ref_updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE referrals OWNER TO postgres;
+
+--
+-- Name: TABLE referrals; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE referrals IS 'A place to store email referrals';
+
+
+--
+-- Name: COLUMN referrals.ref_email; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN referrals.ref_email IS 'The email address of the person being referred';
+
+
+--
+-- Name: referrals_ref_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE referrals_ref_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE referrals_ref_id_seq OWNER TO postgres;
+
+--
+-- Name: referrals_ref_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE referrals_ref_id_seq OWNED BY referrals.ref_id;
+
+
+--
 -- Name: adr_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -476,6 +548,13 @@ ALTER TABLE ONLY order_products ALTER COLUMN op_id SET DEFAULT nextval('order_pr
 --
 
 ALTER TABLE ONLY orders ALTER COLUMN or_id SET DEFAULT nextval('orders_or_id_seq'::regclass);
+
+
+--
+-- Name: ref_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY referrals ALTER COLUMN ref_id SET DEFAULT nextval('referrals_ref_id_seq'::regclass);
 
 
 --
@@ -511,6 +590,14 @@ ALTER TABLE ONLY orders
 
 
 --
+-- Name: referrals_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY referrals
+    ADD CONSTRAINT referrals_pkey PRIMARY KEY (ref_id);
+
+
+--
 -- Name: address_books_adr_cu_id_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -522,6 +609,13 @@ CREATE INDEX address_books_adr_cu_id_idx ON address_books USING btree (adr_cu_id
 --
 
 CREATE INDEX customers_cu_email_idx ON customers USING btree (cu_email);
+
+
+--
+-- Name: ix_referrals_ref_cu_id; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX ix_referrals_ref_cu_id ON referrals USING btree (ref_cu_id);
 
 
 --
@@ -543,6 +637,13 @@ CREATE INDEX orders_or_cu_id_idx ON orders USING btree (or_cu_id);
 --
 
 CREATE INDEX orders_or_so_id_idx ON orders USING btree (or_so_id);
+
+
+--
+-- Name: uix_referrals_ref_email; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE UNIQUE INDEX uix_referrals_ref_email ON referrals USING btree (ref_email);
 
 
 --

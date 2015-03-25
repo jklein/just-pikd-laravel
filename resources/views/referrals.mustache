@@ -1,0 +1,45 @@
+{{% BLOCKS }}
+{{< base }}
+
+{{$ title }}{{ title }}{{/ title }}
+
+{{$ content}}
+    <div class="container  push-down-30">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="center"><span class="light">Your</span> Referrals</h1>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Email Address</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{# referrals }}
+                        <tr>
+                            <td>{{ date }}</td>
+                            <td>{{ email }}</td>
+                            <td>{{ status }}</td>
+                        </tr>
+                    {{/ referrals }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-xs-12">
+                <h1 class="center">Refer Friends</h1>
+                <form action="/account/referrals" method="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token }}">
+                    <textarea class="form-control" name="emails" id="" rows="3"></textarea>
+                    <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
+        </div>
+    </div>
+{{/ content}}
+
+{{/ base }}

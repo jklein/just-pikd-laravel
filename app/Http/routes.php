@@ -33,6 +33,12 @@ Route::group(['middleware' => 'auth'], function() {
         'OrderController',
         ['only' => ['index', 'show']]
     );
+
+    Route::resource(
+        'account/referrals',
+        'ReferralController',
+        ['only' => ['index', 'store']]
+    );
 });
 
 Route::get('util', 'UtilController@handleGet');

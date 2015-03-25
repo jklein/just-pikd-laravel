@@ -1556,6 +1556,13 @@ CREATE MATERIALIZED VIEW search_index AS
 ALTER TABLE search_index OWNER TO postgres;
 
 --
+-- Name: MATERIALIZED VIEW search_index; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON MATERIALIZED VIEW search_index IS 'This is the thing that we search from the site. It is a materialized view so it is easy to update and so it behaves like a table';
+
+
+--
 -- Name: stores; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -2061,6 +2068,16 @@ REVOKE ALL ON TABLE products_suppliers FROM PUBLIC;
 REVOKE ALL ON TABLE products_suppliers FROM postgres;
 GRANT ALL ON TABLE products_suppliers TO postgres;
 GRANT SELECT,INSERT,DELETE,TRUNCATE,UPDATE ON TABLE products_suppliers TO jp_readwrite;
+
+
+--
+-- Name: search_index; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE search_index FROM PUBLIC;
+REVOKE ALL ON TABLE search_index FROM postgres;
+GRANT ALL ON TABLE search_index TO postgres;
+GRANT SELECT,INSERT,DELETE,TRUNCATE,UPDATE ON TABLE search_index TO jp_readwrite;
 
 
 --
