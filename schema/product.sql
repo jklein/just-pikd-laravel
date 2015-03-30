@@ -1479,27 +1479,35 @@ COMMENT ON COLUMN products.pr_expiration_class IS 'Level of rigor needed in chec
 --
 
 CREATE TABLE products_stores (
-    sku ean13 NOT NULL,
-    store_id integer NOT NULL,
-    last_updated timestamp with time zone DEFAULT now() NOT NULL,
-    list_cost integer NOT NULL
+    ps_id integer NOT NULL,
+    ps_pr_sku ean13 NOT NULL,
+    ps_so_id integer NOT NULL,
+    ps_list_cost integer NOT NULL,
+    last_updated timestamp with time zone DEFAULT now() NOT NULL
 );
 
 
 ALTER TABLE products_stores OWNER TO postgres;
 
 --
--- Name: TABLE products_stores; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: products_stores_ps_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE products_stores IS 'Which products are available on which stores, as well as any store specific info such as prices (and potentially merchandising overrides)';
+CREATE SEQUENCE products_stores_ps_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
 
+
+ALTER TABLE products_stores_ps_id_seq OWNER TO postgres;
 
 --
--- Name: COLUMN products_stores.list_cost; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: products_stores_ps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN products_stores.list_cost IS 'The price in CENTS as listed to the customer';
+ALTER SEQUENCE products_stores_ps_id_seq OWNED BY products_stores.ps_id;
 
 
 --
@@ -1763,6 +1771,13 @@ ALTER TABLE ONLY product_families ALTER COLUMN ma_id SET DEFAULT nextval('produc
 
 
 --
+-- Name: ps_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY products_stores ALTER COLUMN ps_id SET DEFAULT nextval('products_stores_ps_id_seq'::regclass);
+
+
+--
 -- Name: psl_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -1856,11 +1871,11 @@ ALTER TABLE ONLY products
 
 
 --
--- Name: products_stores_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- Name: products_stores_pkey1; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY products_stores
-    ADD CONSTRAINT products_stores_pkey PRIMARY KEY (sku, store_id);
+    ADD CONSTRAINT products_stores_pkey1 PRIMARY KEY (ps_id);
 
 
 --
@@ -2098,16 +2113,6 @@ REVOKE ALL ON TABLE products FROM PUBLIC;
 REVOKE ALL ON TABLE products FROM postgres;
 GRANT ALL ON TABLE products TO postgres;
 GRANT SELECT,INSERT,DELETE,TRUNCATE,UPDATE ON TABLE products TO jp_readwrite;
-
-
---
--- Name: products_stores; Type: ACL; Schema: public; Owner: postgres
---
-
-REVOKE ALL ON TABLE products_stores FROM PUBLIC;
-REVOKE ALL ON TABLE products_stores FROM postgres;
-GRANT ALL ON TABLE products_stores TO postgres;
-GRANT SELECT,INSERT,DELETE,TRUNCATE,UPDATE ON TABLE products_stores TO jp_readwrite;
 
 
 --
