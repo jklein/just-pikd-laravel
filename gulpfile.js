@@ -2,6 +2,8 @@ var elixir = require('laravel-elixir');
 
 require('laravel-elixir-sass-compass');
 require('laravel-elixir-browserify');
+require("laravel-elixir-react");
+
 
 /*
  |--------------------------------------------------------------------------
@@ -36,10 +38,19 @@ elixir(function(mix) {
     mix.copy('resources/assets/sass/sass-bootstrap/fonts', 'public/build/css/sass-bootstrap/fonts');
 });
 
+// elixir(function(mix) {
+//     mix.browserify('main.js', {
+//         debug: true,
+//         output: 'public/build/js',
+//         rename: 'bundle.js'
+//     });
+// });
+
 elixir(function(mix) {
-    mix.browserify('main.js', {
-        debug: true,
-        output: 'public/build/js',
-        rename: 'bundle.js'
+    mix.react("main.jsx", {
+        output: "public/build/js",
+        sourceMap: false,
+        harmony: false,
+        stripTypes: false
     });
 });

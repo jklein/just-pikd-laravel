@@ -1,25 +1,20 @@
 <?php namespace Pikd\Http\Controllers;
 
-class IndexController extends Controller {
+use \Pikd\Daos\Product;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct() {
-        //$this->middleware('guest');
-    }
+class IndexController extends Controller {
 
     /**
      * Show the application welcome screen to the user.
      *
      * @return Response
      */
-    public function handleGet() {
-        $products = \Pikd\Daos\Product::getRandomProducts(config('soid'), 8);
+    public function handleGet(\Auth $auth) {
+        $fav_products = Product::getFavoriteProductsForCustomer($auth::user()->cu_id, config('soid'));
+        $random_products = Product::getRandomProducts(config('soid'), 8);
 
-        $data['products'] = $this->formatProductDataForDisplay($products);
+        $data['favorite_products'] = $this->formatProductDataForDisplay($fav_products);
+        $data['random_products'] = $this->formatProductDataForDisplay($random_products);
 
         return view('index', $data);
     }

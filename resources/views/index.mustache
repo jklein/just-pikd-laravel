@@ -5,12 +5,24 @@
 
 {{$ content}}
     <p>Hello {{ name }}! This will be Just Pikd</p>
+    <div id="example"></div>
 
-    <h3>Here are some products: </h3>
+    <h3>Your favorite products: </h3>
+    <div>
+        {{# favorite_products }}
+            {{> modules/product_card }}
+        {{/ favorite_products }}
+        <div class="clearfix"></div>
+    </div>
 
-    {{# products }}
-        {{> modules/product_card }}
-    {{/ products }}
+    <h3>Here are some random products: </h3>
+    <div>
+        {{# random_products }}
+            {{> modules/product_card }}
+        {{/ random_products }}
+        <div class="clearfix"></div>
+    </div>
+
 {{/ content}}
 
 {{/ base }}

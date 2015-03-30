@@ -6,6 +6,7 @@
 			[
 				".vagrant",
 				".sass-cache",
+				"public/build",
 				"node_modules"
 			],
 			"path": "~/development/just-pikd-laravel"

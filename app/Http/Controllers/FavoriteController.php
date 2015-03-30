@@ -13,11 +13,9 @@ class FavoriteController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function index(\Auth $auth)
     {
-        $data['title'] = sprintf("%s | Pikd", 'Favorites');
-        
-        $products = Product::getFavoriteProductsForCustomer(\Auth::user()->cu_id, config('soid'));
+        $products = Product::getFavoriteProductsForCustomer($auth::user()->cu_id, config('soid'));
 
         $data['products'] = $this->formatProductDataForDisplay($products);
 
@@ -29,9 +27,10 @@ class FavoriteController extends Controller {
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $req, \Auth $auth)
     {
-        //
+        $pr_sku = $req->input('pr_sku');
+        $cu_id  = $auth::user()->cu_id;
     }
 
     /**

@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function() {
     );
 
     Route::resource(
-        'favorite',
+        'favorites',
         'FavoriteController',
         ['only' => ['index', 'store', 'destroy']]
     );
