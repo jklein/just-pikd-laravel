@@ -2,6 +2,7 @@
 
 use Pikd\Http\Requests;
 use Pikd\Http\Controllers\Controller;
+use Pikd\Daos\Product;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +15,13 @@ class FavoriteController extends Controller {
      */
     public function index()
     {
-        //
+        $data['title'] = sprintf("%s | Pikd", 'Favorites');
+        
+        $products = Product::getFavoriteProductsForCustomer(\Auth::user()->cu_id, config('soid'));
+
+        $data['products'] = $this->formatProductDataForDisplay($products);
+
+        return view('favorites', $data);
     }
 
     /**

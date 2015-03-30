@@ -17,8 +17,8 @@ class ProductController extends Controller {
         $p = (array)\Pikd\Daos\Product::getProductData(config('soid'), $sku);
 
         $p['image_src'] = \Pikd\Image::product($p['pr_ma_id'], $p['pr_gtin'], \Pikd\Image::FULL_SIZE);
-        $p['list_cost_formatted'] = \Pikd\Util::formatPrice($p['list_cost']);
-        $p['list_cost_cents'] = $p['list_cost'];
+        $p['list_cost_formatted'] = \Pikd\Util::formatPrice($p['ps_list_cost']);
+        $p['list_cost_cents'] = $p['ps_list_cost'];
 
         return view('product', $p);
     }

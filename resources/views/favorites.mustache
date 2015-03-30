@@ -1,0 +1,14 @@
+{{% BLOCKS }}
+{{< base }}
+
+{{$ title }}Home{{/ title }}
+
+{{$ content}}
+    <h3>Your favorites: </h3>
+
+    {{# products }}
+        {{> modules/product_card }}
+    {{/ products }}
+{{/ content}}
+
+{{/ base }}

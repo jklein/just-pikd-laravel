@@ -25,7 +25,7 @@ abstract class Controller extends BaseController {
 
             $product_info_for_display[] = array_merge($p, [
                 "image_url" => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
-                "list_cost" => \Pikd\Util::formatPrice($p['list_cost']),
+                "list_cost" => \Pikd\Util::formatPrice($p['ps_list_cost']),
                 "link"      => $prod->getLink(),
             ]);
         }
