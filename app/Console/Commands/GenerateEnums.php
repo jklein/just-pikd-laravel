@@ -106,7 +106,7 @@ class GenerateEnums extends Command {
         $out .= 'class ' . $enum_name . ' {' . PHP_EOL . PHP_EOL;
 
         foreach ($values as $v) {
-            $out .= "\tconst ";
+            $out .= "    const ";
             if (array_key_exists($v, $manual_map)) {
                 $out .= $manual_map[$v];
             } else {
@@ -115,7 +115,7 @@ class GenerateEnums extends Command {
             $out .= " = '" . $v . "';" . PHP_EOL;
         }
 
-        $out .= PHP_EOL . '}';
+        $out .= '}';
 
         if ($test_mode) {
             echo $out;
