@@ -6,8 +6,8 @@
  * TO MODIFY, EDIT THIS FILE:
  * app/Console/Commands/GenerateEnums.php
  * ==========================================
- * 
- * OrderStatus Enum 
+ *
+ * OrderStatus Enum
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -18,11 +18,10 @@ namespace Pikd\Enums;
 
 class OrderStatus {
 
-	const BASKET = 'Basket';
-	const SHOPPING_LIST = 'Shopping List';
-	const PENDING_PICKUP = 'Pending Pickup';
-	const COMPLETE = 'Complete';
-	const CANCELLED = 'Cancelled';
-	const PROCESSING = 'Processing';
-
+    const BASKET = 'Basket';
+    const SHOPPING_LIST = 'Shopping List';
+    const PENDING_PICKUP = 'Pending Pickup';
+    const COMPLETE = 'Complete';
+    const CANCELLED = 'Cancelled';
+    const PROCESSING = 'Processing';
 }

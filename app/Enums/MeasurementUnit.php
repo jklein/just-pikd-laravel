@@ -6,8 +6,8 @@
  * TO MODIFY, EDIT THIS FILE:
  * app/Console/Commands/GenerateEnums.php
  * ==========================================
- * 
- * MeasurementUnit Enum 
+ *
+ * MeasurementUnit Enum
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -18,15 +18,14 @@ namespace Pikd\Enums;
 
 class MeasurementUnit {
 
-	const FL_OZ = 'fl oz';
-	const OZ = 'oz';
-	const SQ_FT = 'sq ft';
-	const LBS = 'lbs';
-	const COUNT = 'count';
-	const LITER = 'L';
-	const QUART = 'qt';
-	const PINT = 'pt';
-	const GALLON = 'gal';
-	const PACK = 'pack';
-
+    const FL_OZ = 'fl oz';
+    const OZ = 'oz';
+    const SQ_FT = 'sq ft';
+    const LBS = 'lbs';
+    const COUNT = 'count';
+    const LITER = 'L';
+    const QUART = 'qt';
+    const PINT = 'pt';
+    const GALLON = 'gal';
+    const PACK = 'pack';
 }

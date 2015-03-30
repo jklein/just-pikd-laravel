@@ -6,8 +6,8 @@
  * TO MODIFY, EDIT THIS FILE:
  * app/Console/Commands/GenerateEnums.php
  * ==========================================
- * 
- * ProductStatus Enum 
+ *
+ * ProductStatus Enum
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -18,10 +18,9 @@ namespace Pikd\Enums;
 
 class ProductStatus {
 
-	const ACTIVE = 'Active';
-	const BEING_ADDED = 'Being Added';
-	const TEMPORARILY_UNAVAILABLE = 'Temporarily Unavailable';
-	const DISCONTINUED = 'Discontinued';
-	const DUMMY = 'Dummy';
-
+    const ACTIVE = 'Active';
+    const BEING_ADDED = 'Being Added';
+    const TEMPORARILY_UNAVAILABLE = 'Temporarily Unavailable';
+    const DISCONTINUED = 'Discontinued';
+    const DUMMY = 'Dummy';
 }

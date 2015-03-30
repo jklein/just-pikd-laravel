@@ -6,8 +6,8 @@
  * TO MODIFY, EDIT THIS FILE:
  * app/Console/Commands/GenerateEnums.php
  * ==========================================
- * 
- * ReferralStatus Enum 
+ *
+ * ReferralStatus Enum
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -18,9 +18,8 @@ namespace Pikd\Enums;
 
 class ReferralStatus {
 
-	const REFERRED = 'Referred';
-	const CREATED_ACCOUNT = 'Created Account';
-	const PLACED_AN_ORDER = 'Placed An Order';
-	const CREDITED = 'Credited';
-
+    const REFERRED = 'Referred';
+    const CREATED_ACCOUNT = 'Created Account';
+    const PLACED_AN_ORDER = 'Placed An Order';
+    const CREDITED = 'Credited';
 }

@@ -6,8 +6,8 @@
  * TO MODIFY, EDIT THIS FILE:
  * app/Console/Commands/GenerateEnums.php
  * ==========================================
- * 
- * AddressType Enum 
+ *
+ * AddressType Enum
  *
  * @author      A Computer
  * @copyright   (c) 2015 G2G Market, Inc
@@ -18,7 +18,6 @@ namespace Pikd\Enums;
 
 class AddressType {
 
-	const BILLING = 'Billing';
-	const SHIPPING = 'Shipping';
-
+    const BILLING = 'Billing';
+    const SHIPPING = 'Shipping';
 }
