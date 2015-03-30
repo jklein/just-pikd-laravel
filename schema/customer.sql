@@ -697,6 +697,16 @@ GRANT SELECT,INSERT,DELETE,TRUNCATE,UPDATE ON TABLE orders TO jp_readwrite;
 
 
 --
+-- Name: referrals; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE referrals FROM PUBLIC;
+REVOKE ALL ON TABLE referrals FROM postgres;
+GRANT ALL ON TABLE referrals TO postgres;
+GRANT SELECT,INSERT,DELETE,TRUNCATE,UPDATE ON TABLE referrals TO jp_readwrite;
+
+
+--
 -- PostgreSQL database dump complete
 --
 

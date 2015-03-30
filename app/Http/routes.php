@@ -39,6 +39,12 @@ Route::group(['middleware' => 'auth'], function() {
         'ReferralController',
         ['only' => ['index', 'store']]
     );
+
+    Route::resource(
+        'favorite',
+        'FavoriteController',
+        ['only' => ['index', 'store', 'destroy']]
+    );
 });
 
 Route::get('util', 'UtilController@handleGet');

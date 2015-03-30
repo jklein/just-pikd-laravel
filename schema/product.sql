@@ -464,6 +464,41 @@ ALTER SEQUENCE categories_cat_id_seq OWNED BY categories.cat_id;
 
 
 --
+-- Name: favorite_products; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE favorite_products (
+    fp_id integer NOT NULL,
+    fp_pr_sku ean13 NOT NULL,
+    fp_cu_id integer NOT NULL,
+    last_updated timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE favorite_products OWNER TO postgres;
+
+--
+-- Name: favorite_products_fp_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE favorite_products_fp_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE favorite_products_fp_id_seq OWNER TO postgres;
+
+--
+-- Name: favorite_products_fp_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE favorite_products_fp_id_seq OWNED BY favorite_products.fp_id;
+
+
+--
 -- Name: im_items; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -1700,6 +1735,13 @@ ALTER TABLE ONLY categories ALTER COLUMN cat_id SET DEFAULT nextval('categories_
 
 
 --
+-- Name: fp_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY favorite_products ALTER COLUMN fp_id SET DEFAULT nextval('favorite_products_fp_id_seq'::regclass);
+
+
+--
 -- Name: img_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -1771,6 +1813,14 @@ ALTER TABLE ONLY brands
 
 ALTER TABLE ONLY categories
     ADD CONSTRAINT categories_pkey PRIMARY KEY (cat_id);
+
+
+--
+-- Name: favorite_products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY favorite_products
+    ADD CONSTRAINT favorite_products_pkey PRIMARY KEY (fp_id);
 
 
 --
