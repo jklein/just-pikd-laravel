@@ -47,6 +47,7 @@ class CartController extends Controller {
         ];
         $data['stripe_config'] = config('services.stripe');
         $data['or_id'] = $cart->or_id;
+        $data['cu_stripe_id'] = \Auth::user()->cu_stripe_id;
 
         return view('cart', $data);
     }
@@ -78,22 +79,36 @@ class CartController extends Controller {
         return redirect('cart');
     }
 
-    public function checkout(Request $request) {
+    public function checkout(Request $request, \Auth $auth) {
         // Get the details submitted by the form
         $token = $request->input('stripeToken');
         $amt   = $request->input('amount');
         $email = $request->input('stripeEmail');
         $or_id = $request->input('or_id');
 
-
+        // Set the stripe key
         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
+
+        // If this is the customer's first order, set their Stripe ID
+        if (empty($auth::user()->cu_stripe_id)) {
+            // Create a Stripe Customer
+            $customer = \Stripe\Customer::create([
+                "source" => $token,
+                "description" => $email
+            ]);
+
+            // Save the customer ID to the user
+            $auth::user()->cu_stripe_id = $customer->id;
+            $auth::user()->save();
+        }
+
+
         try {
-            // Create the charge on Stripe's servers - this will charge the user's card
-            $charge = \Stripe\Charge::create([
-                "amount"      => $amt,
-                "currency"    => "usd",
-                "source"      => $token,
-                "description" => $email,
+            // Charge the Customer on Stripe's servers - this will charge the user's card
+            \Stripe\Charge::create([
+                "amount"   => $amt,
+                "currency" => "usd",
+                "customer" => $auth::user()->cu_stripe_id,
             ]);
         } catch (\Stripe\Error\Card $e) {
             \Session::flash('failure', 'Your card was declined');
@@ -105,7 +120,7 @@ class CartController extends Controller {
         $order->or_submitted_at = new \DateTime;
         $order->or_updated_at   = new \DateTime;
         $order->or_total_cost   = $amt;
-        $order->or_first_name   = \Auth::user()->cu_first_name;
+        $order->or_first_name   = $auth::user()->cu_first_name;
         $order->or_email        = $email;
         $order->save();
 

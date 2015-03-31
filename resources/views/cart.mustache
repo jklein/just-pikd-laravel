@@ -47,6 +47,11 @@
             <input type="hidden" name="amount" value="{{ cart_totals.numeric_price }}">
             <input type="hidden" name="_token" value="{{ csrf_token }}">
             <input type="hidden" name="or_id" value="{{ or_id }}">
+            <input type="hidden" name="cu_stripe_id" value="{{ cu_stripe_id }}">
+            {{# cu_stripe_id }}
+                <input type="submit" name="submit" value="Place Order" class="btn btn-primary">
+            {{/ cu_stripe_id }}
+            {{^ cu_stripe_id }}
             <script
               src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="{{ stripe_config.public_api_key }}"
@@ -55,6 +60,7 @@
               data-description="{{ cart_totals.num_products }} products ({{ cart_totals.display_price }})"
               data-image="{{ stripe_config.logo }}">
             </script>
+            {{/ cu_stripe_id }}
         </form>
       </div>
     </div>
