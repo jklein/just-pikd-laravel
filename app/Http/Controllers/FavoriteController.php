@@ -3,6 +3,8 @@
 use Pikd\Http\Requests;
 use Pikd\Http\Controllers\Controller;
 use Pikd\Daos\Product;
+use Pikd\Models\FavoriteProduct;
+
 
 use Illuminate\Http\Request;
 
@@ -29,8 +31,16 @@ class FavoriteController extends Controller {
      */
     public function store(Request $req, \Auth $auth)
     {
-        $pr_sku = $req->input('pr_sku');
-        $cu_id  = $auth::user()->cu_id;
+        $p = FavoriteProduct::firstOrNew([
+            'fp_pr_sku' => $req->input('pr_sku'),
+            'fp_cu_id'  => $auth::user()->cu_id,
+        ]);
+
+        if ($p->exists === false) {
+            $p->save();
+        }
+
+        return $p->fp_id;
     }
 
     /**
@@ -41,6 +51,8 @@ class FavoriteController extends Controller {
      */
     public function destroy($id)
     {
-        //
+
+        $fp = FavoriteProduct::find($id);
+        $fp->delete();
     }
 }

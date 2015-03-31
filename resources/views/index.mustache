@@ -7,13 +7,21 @@
     <p>Hello {{ name }}! This will be Just Pikd</p>
     <div id="example"></div>
 
-    <h3>Your favorite products: </h3>
-    <div>
-        {{# favorite_products }}
-            {{> modules/product_card }}
-        {{/ favorite_products }}
-        <div class="clearfix"></div>
-    </div>
+    {{# favorite_products}}
+        <h3>Your favorite products: </h3>
+        <div>
+            {{# favorite_products }}
+                {{> modules/product_card }}
+            {{/ favorite_products }}
+            <div class="clearfix"></div>
+        </div>
+    {{/ favorite_products}}
+
+    <form action="/favorites" method="POST">
+        <input type="hidden" name="_token" value="{{ csrf_token }}">
+        <input type="text" name="pr_sku" value="003-000031684-9">
+        <input type="submit" name="submit" value="submit">
+    </form>
 
     <h3>Here are some random products: </h3>
     <div>

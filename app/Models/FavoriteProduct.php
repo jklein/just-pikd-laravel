@@ -9,6 +9,7 @@ class FavoriteProduct extends Model {
     public $timestamps = false;
 
     protected $fillable = [
+        'fp_id',
         'fp_pr_sku',
         'fp_cu_id',
         'last_updated',

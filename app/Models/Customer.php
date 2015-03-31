@@ -25,7 +25,11 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
      *
      * @var array
      */
-    protected $fillable = ['cu_first_name', 'cu_email', 'cu_password'];
+    protected $fillable = [
+        'cu_first_name',
+        'cu_email',
+        'cu_password'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
