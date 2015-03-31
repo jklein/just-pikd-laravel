@@ -5,7 +5,7 @@ use \Pikd\Models\FavoriteProduct;
 
 class FavoritesTest extends TestCase {
 
-    private $fp_id;
+    const TEST_SKU = '006-414403021-7';
 
     public function setUp() {
         parent::setUp();
@@ -21,7 +21,7 @@ class FavoritesTest extends TestCase {
      */
     public function testAddFavorite() {
         $response = $this->call('POST', '/favorites', [
-            'pr_sku' => '006-414403021-7',
+            'pr_sku' => self::TEST_SKU,
         ]);
 
         $this->assertTrue(is_numeric($response->original));
@@ -35,7 +35,7 @@ class FavoritesTest extends TestCase {
      */
     public function testDeleteFavorite() {
         $response = $this->call('POST', '/favorites', [
-            'pr_sku' => '006-414403021-7',
+            'pr_sku' => self::TEST_SKU,
         ]);
 
         $delete = $this->call('DELETE', '/favorites/' . $response->original);

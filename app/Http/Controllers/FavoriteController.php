@@ -51,7 +51,6 @@ class FavoriteController extends Controller {
      */
     public function destroy($id)
     {
-
         $fp = FavoriteProduct::find($id);
         $fp->delete();
     }
