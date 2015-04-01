@@ -18,7 +18,8 @@ class Registrar implements RegistrarContract {
         $verifier->setConnection('customer');
 
         $validator = Validator::make($data, [
-            'name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:customers,cu_email',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -37,7 +38,8 @@ class Registrar implements RegistrarContract {
     public function create(array $data)
     {
         return Customer::create([
-            'cu_first_name' => $data['name'],
+            'cu_first_name' => $data['first_name'],
+            'cu_last_name' => $data['last_name'],
             'cu_email' => $data['email'],
             'cu_password' => bcrypt($data['password']),
         ]);
