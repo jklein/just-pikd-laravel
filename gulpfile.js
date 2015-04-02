@@ -1,8 +1,10 @@
-var elixir = require('laravel-elixir');
+var gulp       = require('gulp');
+var elixir     = require('laravel-elixir');
+var browserify = require('browserify');
+var source     = require('vinyl-source-stream');
+var reactify   = require('reactify');
 
 require('laravel-elixir-sass-compass');
-require('laravel-elixir-browserify');
-require("laravel-elixir-react");
 
 
 /*
@@ -15,6 +17,28 @@ require("laravel-elixir-react");
  | file for our application, as well as publishing vendor resources.
  |
  */
+
+// Create a new command for Laravel Elixir that will browserify and Reactify
+elixir.extend('reactifyBrowserifyElixir', function(inputFile, inputFileName, outputDirectory) {
+
+    gulp.task('browserify_and_reactify', function() {
+        var b = browserify();
+
+        b.transform(reactify);
+
+        b.add(inputFile);
+
+        return b.bundle()
+            .pipe(source(inputFileName))
+            .pipe(gulp.dest(outputDirectory));
+    });
+
+    return this.queueTask('browserify_and_reactify');
+});
+
+elixir(function(mix) {
+    mix.reactifyBrowserifyElixir('./resources/assets/js/main.js', 'main.js', './public/build/js/');
+});
 
 elixir(function(mix) {
     mix.compass("", "public/build/css", {
@@ -38,19 +62,3 @@ elixir(function(mix) {
     mix.copy('resources/assets/sass/sass-bootstrap/fonts', 'public/build/css/sass-bootstrap/fonts');
 });
 
-// elixir(function(mix) {
-//     mix.browserify('main.js', {
-//         debug: true,
-//         output: 'public/build/js',
-//         rename: 'bundle.js'
-//     });
-// });
-
-elixir(function(mix) {
-    mix.react("main.jsx", {
-        output: "public/build/js",
-        sourceMap: false,
-        harmony: false,
-        stripTypes: false
-    });
-});
