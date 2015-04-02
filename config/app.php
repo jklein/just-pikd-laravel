@@ -139,6 +139,7 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
+		'Barryvdh\Debugbar\ServiceProvider',
 		'Pikd\Providers\AppServiceProvider',
 		'Pikd\Providers\BusServiceProvider',
 		'Pikd\Providers\ConfigServiceProvider',
@@ -146,7 +147,7 @@ return [
 		'Pikd\Providers\RouteServiceProvider',
 		'Pikd\Providers\AuthServiceProvider',
 
-		/* 
+		/*
 		 * Mustache templating
 		 */
 		'Laratash\LaratashServiceProvider',

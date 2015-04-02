@@ -5,3 +5,4 @@
 *.map
 public/build
 .vagrant
+storage
