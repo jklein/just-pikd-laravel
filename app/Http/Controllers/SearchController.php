@@ -11,6 +11,7 @@ class SearchController extends Controller {
         $query = $r->input('q');
 
         $products = \Pikd\Daos\Product::search($query);
+
         $product_data = $this->formatProductDataForDisplay($products);
 
         // Now we need to break the products up into their categories

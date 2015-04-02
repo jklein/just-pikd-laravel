@@ -3,6 +3,10 @@
 
 {{$ title }}{{ pr_name }}{{/ title }}
 
+{{$ link_tags }}
+<link rel="canonical" href="{{ config.domain }}{{ link_href }}" />
+{{/ link_tags }}
+
 {{$ content}}
     <div class="container">
     <div class="push-down-30">
@@ -23,7 +27,7 @@
                     <hr class="bold__divider">
                     <p class="single-product__text">{{ pr_description }}</p>
                     <hr class="bold__divider">
-                    
+
                     {{> modules/product/options }}
 
                     <!-- Quantity buttons
@@ -40,7 +44,7 @@
                         <input type="hidden" name="ma_name" value="{{ ma_name }}">
                         <input type="hidden" name="list_cost" value="{{ list_cost_cents }}">
                         <input type="hidden" name="_token" value="{{ csrf_token }}">
-                        <input type="number" value="1" min="1" name="qty" /> 
+                        <input type="number" value="1" min="1" name="qty" />
                         <button class="btn btn-primary--transition">
                             <span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-shopping-cart"></span>
                             <span class="single-product__btn-text">Add to shopping cart</span>

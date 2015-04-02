@@ -16,9 +16,10 @@ class SetViewData {
         if (\Auth::check()) {
             view()->share('name', \Auth::user()->cu_first_name);
         }
-      
+
         view()->share('logged_in', \Auth::check());
         view()->share('csrf_token', csrf_token());
+        view()->share('config', config('view.config'));
         view()->share('flash', [
             'default' => \Session::get('default'),
             'info' => \Session::get('info'),

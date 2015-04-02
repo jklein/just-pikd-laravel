@@ -38,7 +38,7 @@ abstract class Controller extends BaseController {
      */
     protected function formatValidationErrors(Validator $validator) {
         $errors = $validator->errors()->all();
-        
+
         \Session::flash('danger', $errors);
 
         return $errors;
