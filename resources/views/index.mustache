@@ -4,8 +4,8 @@
 {{$ title }}Home{{/ title }}
 
 {{$ content}}
-    <p>Hello {{ name }}! This will be Just Pikd</p>
-    <div id="example"></div>
+    <div id="products"></div>
+    <div id="cart"></div>
 
     {{# favorite_products}}
         <h3>Your favorite products: </h3>
@@ -16,12 +16,6 @@
             <div class="clearfix"></div>
         </div>
     {{/ favorite_products}}
-
-    <form action="/favorites" method="POST">
-        <input type="hidden" name="_token" value="{{ csrf_token }}">
-        <input type="text" name="pr_sku" value="003-000031684-9">
-        <input type="submit" name="submit" value="submit">
-    </form>
 
     <h3>Here are some random products: </h3>
     <div>

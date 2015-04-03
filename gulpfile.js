@@ -1,8 +1,10 @@
-var gulp       = require('gulp');
-var elixir     = require('laravel-elixir');
-var browserify = require('browserify');
-var source     = require('vinyl-source-stream');
-var reactify   = require('reactify');
+var gulp         = require('gulp');
+var elixir       = require('laravel-elixir');
+var browserify   = require('browserify');
+var source       = require('vinyl-source-stream');
+var reactify     = require('reactify');
+var Notification = require('laravel-elixir/ingredients/commands/Notification');
+
 
 require('laravel-elixir-sass-compass');
 
@@ -30,15 +32,18 @@ elixir.extend('reactifyBrowserifyElixir', function(inputFile, inputFileName, out
 
         return b.bundle()
             .pipe(source(inputFileName))
-            .pipe(gulp.dest(outputDirectory));
+            .pipe(gulp.dest(outputDirectory))
+            .pipe(new Notification().message('React and Browserify Compiled!'));
     });
 
+    this.registerWatcher("browserify_and_reactify", "resources/assets/**/*.js");
     return this.queueTask('browserify_and_reactify');
 });
 
 elixir(function(mix) {
-    mix.reactifyBrowserifyElixir('./resources/assets/js/main.js', 'main.js', './public/build/js/');
+    mix.reactifyBrowserifyElixir('./resources/assets/js/app.js', 'app.js', './public/build/js/');
 });
+
 
 elixir(function(mix) {
     mix.compass("", "public/build/css", {

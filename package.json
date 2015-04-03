@@ -1,14 +1,19 @@
 {
   "private": true,
+  "dependencies": {
+    "react":                       "*",
+    "flux":                        "^2.0.0",
+    "underscore":                  "^1.7.0",
+    "laravel-elixir-sass-compass": "^0.2.8"
+  },
   "devDependencies": {
     "gulp":                "^3.8.8",
     "laravel-elixir":      "*",
     "browserify":          "*",
-    "react":               "*",
     "vinyl-source-stream": "*",
-    "reactify":            "*"
-  },
-  "dependencies": {
-    "laravel-elixir-sass-compass": "^0.2.8"
+    "reactify":            "*",
+    "envify":              "~3.0.0",
+    "react":               "*",
+    "watchify":            "~2.1.0"
   }
 }
