@@ -7,7 +7,6 @@ var ProductStore = require('../stores/ProductStore');
 function getProductState() {
   return {
     product: ProductStore.getProduct(),
-    selectedProduct: ProductStore.getSelected(),
     cartItems: CartStore.getCartItems(),
   };
 }
@@ -22,25 +21,19 @@ var FluxProduct = React.createClass({
 
   // Add item to cart via Actions
   addToCart: function(event){
-    var sku = this.state.selectedProduct.sku;
+    var sku = this.state.product.sku;
     var update = {
       name: this.state.product.name,
-      type: this.state.selectedProduct.type,
-      price: this.state.selectedProduct.price
+      price: this.state.product.price
     }
     FluxCartActions.addToCart(sku, update);
     FluxCartActions.updateCartVisible(true);
   },
 
-  // Select product variation via Actions
-  selectVariant: function(event){
-    FluxCartActions.selectProduct(event.target.value);
-  },
-
-
   // Add change listeners to stores
   componentDidMount: function() {
     ProductStore.addChangeListener(this._onChange);
+    CartStore.addChangeListener(this._onChange);
   },
 
   // Remove change listers from stores
@@ -50,23 +43,35 @@ var FluxProduct = React.createClass({
 
   // Render product View
   render: function() {
-    var ats = (this.state.selectedProduct.sku in this.state.cartItems) ?
-      this.state.selectedProduct.inventory - this.state.cartItems[this.state.selectedProduct.sku].quantity :
-      this.state.selectedProduct.inventory;
+    var ats = (this.state.product.sku in this.state.cartItems) ?
+      this.state.product.inventory - this.state.cartItems[this.state.product.sku].quantity :
+      this.state.product.inventory;
+
     return (
-      <div className="flux-product">
-        <img src={'img/' + this.state.product.image}/>
-        <div className="flux-product-detail">
-          <h1 className="name">{this.state.product.name}</h1>
-          <p className="description">{this.state.product.description}</p>
-          <p className="price">Price: ${this.state.selectedProduct.price}</p>
-          <select onChange={this.selectVariant}>
-            {this.state.product.variants.map(function(variant, index){
-              return (
-                <option key={index} value={index}>{variant.type}</option>
-              )
-            })}
-          </select>
+      <div className="col-xs-6 col-sm-3 product_card">
+        <div className="products__single">
+          <figure className="products__image">
+              <a href={this.state.product.link}>
+                  <img alt={this.state.product.name} className="product__image" width="200" height="200" src={this.state.product.image} />
+              </a>
+          </figure>
+          <div className="row">
+              <div className="col-xs-9">
+                  <h5 className="products__title">
+                      <a className="products__link js--isotope-title" href={this.state.product.link}>{this.state.product.name}</a>
+                  </h5>
+              </div>
+              <div className="col-xs-3">
+                  <div className="products__price">
+                      {this.state.product.list_cost}
+                  </div>
+              </div>
+          </div>
+          <div className="products__category">
+              {this.state.product.cat_name}
+          </div>
+
+
           <button type="button" onClick={this.addToCart} disabled={ats  > 0 ? '' : 'disabled'}>
             {ats > 0 ? 'Add To Cart' : 'Sold Out'}
           </button>

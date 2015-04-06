@@ -4,19 +4,12 @@ var FluxCartConstants = require('../constants/FluxCartConstants');
 var _ = require('underscore');
 
 // Define initial data points
-var _product = {}, _selected = null;
+var _product = {};
 
 // Method to load product data from mock API
 function loadProductData(data) {
   _product = data[0];
-  _selected = data[0].variants[0];
 }
-
-// Method to set the currently selected product variation
-function setSelected(index) {
-  _selected = _product.variants[index];
-}
-
 
 // Extend ProductStore with EventEmitter to add eventing capabilities
 var ProductStore = _.extend({}, EventEmitter.prototype, {
@@ -24,11 +17,6 @@ var ProductStore = _.extend({}, EventEmitter.prototype, {
   // Return Product data
   getProduct: function() {
     return _product;
-  },
-
-  // Return selected Product
-  getSelected: function(){
-    return _selected;
   },
 
   // Emit Change event
@@ -58,11 +46,6 @@ AppDispatcher.register(function(payload) {
     // Respond to RECEIVE_DATA action
     case FluxCartConstants.RECEIVE_DATA:
       loadProductData(action.data);
-      break;
-
-    // Respond to SELECT_PRODUCT action
-    case FluxCartConstants.SELECT_PRODUCT:
-      setSelected(action.data);
       break;
 
     default:
