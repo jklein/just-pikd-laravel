@@ -5,28 +5,24 @@ use \DB;
 class Product {
 
     // This should not get called in production
-    public static function getRandomProducts($so_id, $num) {
+    public static function getRandomProducts($num) {
         $sql = 'SELECT * from products
-                    join products_stores on pr_sku = ps_pr_sku
                     join categories on pr_cat_id = cat_id
-                    where ps_so_id = ?
-                    order by random()
+                    order by RAND()
                     limit ?';
 
 
-        return DB::select($sql, [$so_id, $num]);
+        return DB::select($sql, [$num]);
     }
 
-    public static function getProductData($so_id, $sku) {
+    public static function getProductData($sku) {
         $sql = 'SELECT * from products
-                    join products_stores on pr_sku = ps_pr_sku
                     join categories on pr_cat_id = cat_id
                     join manufacturers on pr_ma_id = ma_id
-                    where ps_so_id = ?
                     and pr_sku = ?';
 
         // TODO handle null case
-        return DB::select($sql, [$so_id, $sku])[0];
+        return DB::select($sql, [$sku])[0];
     }
 
     public static function search($query) {

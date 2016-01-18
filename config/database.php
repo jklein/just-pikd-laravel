@@ -47,33 +47,35 @@ return [
     'connections' => [
         'product' => [
             'read' => [
-                'username' => env('DB_USERNAME', 'postgres'),
+                'username' => env('DB_USERNAME', 'admin'),
                 'password' => env('DB_PASSWORD', 'justpikd'),
             ],
             'write' => [
-                'username' => env('DB_USERNAME', 'postgres'),
+                'username' => env('DB_USERNAME', 'admin'),
                 'password' => env('DB_PASSWORD', 'justpikd'),
             ],
             'database' => 'product',
             'driver'   => 'mysql',
             'host'     => env('DB_HOST', 'localhost'),
             'charset'  => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix'   => '',
             'schema'   => 'public',
         ],
         'customer' => [
             'read' => [
-                'username' => env('DB_USERNAME', 'postgres'),
+                'username' => env('DB_USERNAME', 'admin'),
                 'password' => env('DB_PASSWORD', 'justpikd'),
             ],
             'write' => [
-                'username' => env('DB_USERNAME', 'postgres'),
+                'username' => env('DB_USERNAME', 'admin'),
                 'password' => env('DB_PASSWORD', 'justpikd'),
             ],
             'database' => 'customer',
             'driver'   => 'mysql',
             'host'     => env('DB_HOST', 'localhost'),
             'charset'  => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix'   => '',
             'schema'   => 'public',
         ]

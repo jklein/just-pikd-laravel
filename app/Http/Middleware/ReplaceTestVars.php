@@ -2,7 +2,6 @@
 
 use Closure;
 use Illuminate\Http\Response;
-use Illuminate\Contracts\Routing\Middleware;
 use Illuminate\Contracts\Foundation\Application;
 
 class ReplaceTestVars implements Middleware {

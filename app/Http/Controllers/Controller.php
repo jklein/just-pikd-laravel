@@ -28,8 +28,8 @@ abstract class Controller extends BaseController {
                 "pr_name"         => 'A Demo Product',
                 "cat_name"        => $p['cat_name'],
                 "image_url"       => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
-                "list_cost_cents" => $p['ps_list_cost'],
-                "list_cost_fmt"   => \Pikd\Util::formatPrice($p['ps_list_cost']),
+                "list_cost_cents" => $prod->pr_list_cost,
+                "list_cost_fmt"   => \Pikd\Util::formatPrice($prod->pr_list_cost),
                 "link"            => $prod->getLink(),
                 "inventory"       => 100, //TODO: Make this not fake
             ];

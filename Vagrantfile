@@ -29,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", type: "dhcp"
   config.vm.network "forwarded_port", guest: 80, host: 8090
   config.vm.network "forwarded_port", guest: 3000, host:3010
+  config.vm.network "forwarded_port", guest: 3306, host:3306
 
   #provision the VM with chef_solo, which uses cookbooks in the cookbooks/ directory
   config.vm.provision "chef_solo" do |chef|

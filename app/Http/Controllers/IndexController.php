@@ -10,12 +10,7 @@ class IndexController extends Controller {
      * @return Response
      */
     public function handleGet(\Auth $auth) {
-        if ($auth::user()) {
-            $fav_products = Product::getFavoriteProductsForCustomer($auth::user()->cu_id, config('soid'));
-            $data['favorite_products'] = $this->formatProductDataForDisplay($fav_products);
-        }
-
-        $random_products = Product::getRandomProducts(config('soid'), 16);
+        $random_products = Product::getRandomProducts(16);
         $data['random_products'] = $this->formatProductDataForDisplay($random_products);
         $data['random_products_json'] = $this->jsonifyProductData($data['random_products']);
 
