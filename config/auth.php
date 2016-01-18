@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'pikd_driver',
-            'model'  => Pikd\Models\Customer,
+            'model'  => Pikd\Models\Customer::class,
             'table'  => 'customers',
         ],
     ],
