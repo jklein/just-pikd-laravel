@@ -4,19 +4,19 @@ var FluxCartConstants = require('../constants/FluxCartConstants');
 var _ = require('underscore');
 
 // Define initial data points
-var _product = {};
+var _products = {};
 
 // Method to load product data from mock API
 function loadProductData(data) {
-  _product = data[0];
+  _products = data;
 }
 
 // Extend ProductStore with EventEmitter to add eventing capabilities
 var ProductStore = _.extend({}, EventEmitter.prototype, {
 
   // Return Product data
-  getProduct: function() {
-    return _product;
+  getProduct: function(sku) {
+    return _products[sku];
   },
 
   // Emit Change event

@@ -30,7 +30,6 @@
     <div class="row">
       <div class="col-xs-10  col-md-2">
         <div class="header-logo">
-          <a href="/"><img alt="Logo" src="/assets/images/logo.png" width="200" height="90"></a>
         </div>
       </div>
       <div class="col-xs-2  visible-sm  visible-xs">
@@ -84,6 +83,7 @@
               </a>
             </div>
           </div><!-- /.navbar-collapse -->
+          <br/>
         </nav>
       </div>
       <div class="col-xs-12  col-md-2  hidden-sm  hidden-xs">
@@ -94,50 +94,7 @@
             <span class="header-cart__items-num">{{ cart.items }}</span>
           </a>
           <!-- Open cart panel -->
-          <div class="header-cart__open-cart">
-
-            <div class="header-cart__product  clearfix  js--cart-remove-target">
-              <div class="header-cart__product-image">
-                <img alt="Product in the cart" src="{{ product_image }}" width="40" height="50">
-              </div>
-              <div class="header-cart__product-image--hover">
-                <a href="#" class="js--remove-item" data-target=".js--cart-remove-target"><span class="glyphicon  glyphicon-circle  glyphicon-remove"></span></a>
-              </div>
-              <div class="header-cart__product-title">
-                <a class="header-cart__link" href="single-product.html">{{ product_name }}</a>
-                <span class="header-cart__qty">Qty: {{ product_qty }}</span>
-              </div>
-              <div class="header-cart__price">
-                {{ product_price }}
-              </div>
-            </div>
-
-            <hr class="header-cart__divider">
-            <div class="header-cart__subtotal-box">
-              <span class="header-cart__subtotal">CART SUBTOTAL:</span>
-              <span class="header-cart__subtotal-price">{{ cart.total }}</span>
-            </div>
-            <a class="btn btn-darker" href="/cart">Procced to checkout</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--Search open pannel-->
-  <div class="search-panel">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-11">
-          <form class="search-panel__form" action="search-results.html">
-            <button type="submit"><span class="glyphicon  glyphicon-search"></span></button>
-            <input type="text" name="s" class="form-control" placeholder="Enter your search keyword">
-          </form>
-        </div>
-        <div class="col-sm-1">
-          <div class="search-panel__close  pull-right">
-            <a href="#" class="js--toggle-search-mode"><span class="glyphicon  glyphicon-circle  glyphicon-remove"></span></a>
-          </div>
+          <div class="header-cart__open-cart" id="cart"></div>
         </div>
       </div>
     </div>

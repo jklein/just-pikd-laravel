@@ -17,7 +17,7 @@ class Image {
     const DOMAIN     = 'https://s3.amazonaws.com';
 
     public static function product($ma_id, $gtin, $size = self::THUMB_SIZE) {
-        return self::DOMAIN . '/g2gcdn/' . $ma_id . '/' . $gtin . '_' . $size . '.jpg';
+        return '/assets/images/meter_gauge.png';
     }
 
     public static function productFromSKU($sku, $size = self::THUMB_SIZE) {

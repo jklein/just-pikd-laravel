@@ -50,26 +50,40 @@ var FluxCart = React.createClass({
     var self = this, products = this.state.cartItems;
     return (
       <div className={"flux-cart " + (this.props.visible ? 'active' : '')}>
-        <div className="mini-cart">
-          <button type="button" className="close-cart" onClick={this.closeCart}>×</button>
-          <ul>
             {Object.keys(products).map(function(product){
               return (
-                <li key={product}>
-                  <h1 className="name">{products[product].name}</h1>
-                  <p className="type">{products[product].type} x {products[product].quantity}</p>
-                  <p className="price">${(products[product].price * products[product].quantity).toFixed(2)}</p>
-                  <button type="button" className="remove-item" onClick={self.removeFromCart.bind(self, product)}>Remove</button>
-                </li>
+                <div className="header-cart__product clearfix js--cart-remove-target">
+                  <div className="header-cart__product-image">
+                    <img alt="Product in the cart" src={products[product].image_url} width="40" height="40" />
+                  </div>
+                  <div className="header-cart__product-image--hover">
+                    <a href="#" className="js--remove-item" data-target=".js--cart-remove-target" onClick={self.removeFromCart.bind(self, product)}>
+                      <span className="glyphicon  glyphicon-circle  glyphicon-remove"></span>
+                    </a>
+                  </div>
+                  <div className="header-cart__product-title">
+                    <a className="header-cart__link" href="single-product.html">{products[product].name}</a>
+                    <span className="header-cart__qty">Qty: {products[product].quantity}</span>
+                  </div>
+                  <div className="header-cart__price">
+                    ${((products[product].price/100) * products[product].quantity).toFixed(2)}
+                  </div>
+                </div>
               )
             })}
-          </ul>
-          <span className="total">Total: ${this.props.total}</span>
-        </div>
-        <button type="button" className="view-cart" onClick={this.openCart} disabled={Object.keys(this.state.cartItems).length > 0 ? "" : "disabled"}>View Cart ({this.props.count})</button>
+            <hr class="header-cart__divider" />
+            <div class="header-cart__subtotal-box">
+              <span class="header-cart__subtotal">CART SUBTOTAL:</span>
+              <span class="header-cart__subtotal-price">${this.props.total}</span>
+            </div>
+            <a class="btn btn-darker" href="/cart">Procced to checkout</a>
       </div>
     );
   },
+
+
+
+
 
   // Method to setState based upon Store changes
   _onChange: function() {

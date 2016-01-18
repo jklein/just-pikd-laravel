@@ -23,14 +23,28 @@ abstract class Controller extends BaseController {
         foreach ($products as $p) {
             $prod = new \Pikd\Models\Product($p);
 
-            $product_info_for_display[] = array_merge($p, [
-                "image_url" => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
-                "list_cost" => \Pikd\Util::formatPrice($p['ps_list_cost']),
-                "link"      => $prod->getLink(),
-            ]);
+            $product_info_for_display[] = [
+                "pr_sku"          => $p['pr_sku'],
+                "pr_name"         => 'A Demo Product',
+                "cat_name"        => $p['cat_name'],
+                "image_url"       => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
+                "list_cost_cents" => $p['ps_list_cost'],
+                "list_cost_fmt"   => \Pikd\Util::formatPrice($p['ps_list_cost']),
+                "link"            => $prod->getLink(),
+                "inventory"       => 100, //TODO: Make this not fake
+            ];
         }
 
         return new \ArrayIterator($product_info_for_display);
+    }
+
+    public function jsonifyProductData($data) {
+        $output = [];
+        foreach ($data as $product) {
+            $output[$product['pr_sku']] = $product;
+        }
+
+        return json_encode($output);
     }
 
     /**

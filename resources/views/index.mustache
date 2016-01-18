@@ -20,10 +20,14 @@
     <h3>Here are some random products: </h3>
     <div>
         {{# random_products }}
-            {{> modules/product_card }}
+            <div id="{{ pr_sku }}"></div>
         {{/ random_products }}
         <div class="clearfix"></div>
     </div>
+
+    <script type="text/javascript">
+        var products = {{{ random_products_json }}}
+    </script>
 
 {{/ content}}
 

@@ -40,9 +40,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #TODO remove this: monit should handle it
   config.vm.provision "shell", inline: "sudo service php-fpm restart"
 
-  #create shared folder for code
   config.vm.synced_folder ".", "/usr/share/nginx/html", type: "nfs", :mount_options => ['nolock,vers=3,udp,noatime,actimeo=1']
-  config.vm.synced_folder "~/development/just-pikd-wms", "/opt/go/src/just-pikd-wms"
-  #shared folder for database dumps (assumes you have Box set up)
-  config.vm.synced_folder "~/Box\ Sync/Company\ Shared\ Folder/database/", "/mnt/database"
 end

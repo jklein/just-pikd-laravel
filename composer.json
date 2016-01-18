@@ -5,17 +5,17 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "5.0.*",
+		"laravel/framework": "5.*",
 		"brightmachine/laratash": "~5.0",
 		"stripe/stripe-php": "2.*",
 		"predis/predis": "1.0.*",
 		"mandrill/mandrill": "1.0.*",
-		"maximebf/debugbar": "1.*",
-		"guzzlehttp/guzzle": "5.*",
-		"barryvdh/laravel-debugbar": "~2.0"
+		"guzzlehttp/guzzle": "5.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
+		"symfony/dom-crawler": "~3.0",
+		"symfony/css-selector": "~3.0",
 		"phpspec/phpspec": "~2.1"
 	},
 	"autoload": {
