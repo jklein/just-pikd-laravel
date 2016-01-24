@@ -74,11 +74,11 @@ CREATE TABLE categories (
 );
 
 CREATE TABLE favorite_products (
-    fp_id int(11) NOT NULL,
-    fp_pr_sku ean13 NOT NULL,
+    fp_id int NOT NULL AUTO_INCREMENT,
+    fp_pr_sku varchar(255) NOT NULL,
     fp_cu_id int(11) NOT NULL,
     last_updated timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL
-) TYPE=MyISAM;
+);
 
 CREATE TABLE im_items (
     item_upc varchar(50),
@@ -556,6 +556,7 @@ CREATE TABLE products (
     pr_upc_vendor int(11),
     pr_upc_case int(11),
     pr_upc_item int(11),
+    pr_list_cost int(11),
     pr_length double precision,
     pr_width double precision,
     pr_height double precision,
@@ -577,7 +578,7 @@ CREATE TABLE products (
     pr_case_weight double precision,
     pr_expiration_class varchar(13),
     last_updated timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 CREATE TABLE products_stores (
     ps_id int(11) NOT NULL,

@@ -25,7 +25,7 @@ abstract class Controller extends BaseController {
 
             $product_info_for_display[] = [
                 "pr_sku"          => $p['pr_sku'],
-                "pr_name"         => 'A Demo Product',
+                "pr_name"         => $p['pr_name'],
                 "cat_name"        => $p['cat_name'],
                 "image_url"       => \Pikd\Image::product($prod->pr_ma_id, $prod->pr_gtin),
                 "list_cost_cents" => $prod->pr_list_cost,

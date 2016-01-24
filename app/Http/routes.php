@@ -16,6 +16,10 @@ Route::get('/products/{sku}/{slug?}', 'ProductController@handleGet');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('/categories/{id}', 'CategoryController@index');
+
+Route::get('/favorites/{id}', 'FavoriteController@index');
+
 Route::post('search', 'SearchController@handleSearch');
 
 Route::group(['middleware' => 'auth'], function() {

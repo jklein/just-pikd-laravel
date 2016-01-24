@@ -4,29 +4,28 @@ use Pikd\Http\Requests;
 use Pikd\Http\Controllers\Controller;
 use Pikd\Daos\Product;
 use Pikd\Models\FavoriteProduct;
+use Pikd\Models\Category;
 
 
 use Illuminate\Http\Request;
 
-class FavoriteController extends Controller {
+class CategoryController extends Controller {
 
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index($user_id)
+    public function index($cat_id)
     {
-        $products = Product::getFavoriteProductsForCustomer(1);
+        $categories = Category::where('cat_id', 1)->get();
+        dd($categories);
 
-        $products_for_display = [];
-        foreach ($products as $product) {
-            $products_for_display[] = Product::getProductData($product['fp_pr_sku']);
-        }
+        $products = Product::getProductsForCategory($cat_id);
 
-        $data['products'] = $this->formatProductDataForDisplay($products_for_display);
+        $data['products'] = $this->formatProductDataForDisplay($products);
 
-        return view('favorites', $data);
+        return view('category', $data);
     }
 
     /**

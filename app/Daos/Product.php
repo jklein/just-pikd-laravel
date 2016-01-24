@@ -18,7 +18,6 @@ class Product {
     public static function getProductData($sku) {
         $sql = 'SELECT * from products
                     join categories on pr_cat_id = cat_id
-                    join manufacturers on pr_ma_id = ma_id
                     and pr_sku = ?';
 
         // TODO handle null case
@@ -44,15 +43,20 @@ class Product {
         return DB::select($sql);
     }
 
-    public static function getFavoriteProductsForCustomer($cu_id, $so_id) {
-        $sql = "SELECT * from products
-                    join products_stores on pr_sku = ps_pr_sku
-                    join categories on pr_cat_id = cat_id
-                    join manufacturers on pr_ma_id = ma_id
-                    join favorite_products on fp_pr_sku = pr_sku
-                    where fp_cu_id = ?
-                    and ps_so_id = ?";
+    public static function getFavoriteProductsForCustomer($cu_id) {
+        $sql = "SELECT * from favorite_products
+                    where fp_cu_id = ?";
 
-        return DB::select($sql, [$cu_id, $so_id]);
+        return DB::select($sql, [$cu_id]);
+    }
+
+    public static function getProductsForCategory($cat_id) {
+        $sql = 'SELECT * from products
+                    join categories on pr_cat_id = cat_id
+                    where cat_id = ?
+                    limit 40';
+
+
+        return DB::select($sql, [$cat_id]);
     }
 }

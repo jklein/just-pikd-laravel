@@ -41,6 +41,7 @@ class Product extends Model {
         'pr_case_height',
         'pr_case_weight',
         'pr_expiration_class',
+        'pr_list_cost',
     ];
 
     public function getLink() {
