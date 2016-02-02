@@ -5,7 +5,6 @@ use Pikd\Http\Controllers\Controller;
 use Pikd\Daos\Product;
 use Pikd\Models\FavoriteProduct;
 
-
 use Illuminate\Http\Request;
 
 class FavoriteController extends Controller {
@@ -17,12 +16,7 @@ class FavoriteController extends Controller {
      */
     public function index($user_id)
     {
-        $products = Product::getFavoriteProductsForCustomer(1);
-
-        $products_for_display = [];
-        foreach ($products as $product) {
-            $products_for_display[] = Product::getProductData($product['fp_pr_sku']);
-        }
+        $products_for_display = Product::getFavoriteProductsForCustomer($user_id);
 
         $data['products'] = $this->formatProductDataForDisplay($products_for_display);
 
