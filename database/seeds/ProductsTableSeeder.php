@@ -68,7 +68,7 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        $num_products = 10000;
+        $num_products = 100000;
 
 
         $skus = [];
