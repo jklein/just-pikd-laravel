@@ -42,4 +42,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: "sudo service php-fpm restart"
 
   config.vm.synced_folder ".", "/usr/share/nginx/html", type: "nfs", :mount_options => ['nolock,vers=3,udp,noatime,actimeo=1']
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "pluralsight-demo"
+    vb.memory = "1024"
+    vb.cpus = 1
+  end
 end

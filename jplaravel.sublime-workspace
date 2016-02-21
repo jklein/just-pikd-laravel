@@ -4,16 +4,60 @@
 		"selected_items":
 		[
 			[
+				"cat_",
+				"cat_id"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"pro",
+				"products_for_display"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"ca",
+				"cached_products"
+			],
+			[
+				"prod",
+				"products_for_display"
+			],
+			[
+				"fp",
+				"fprintf"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"seed",
+				"seedFavorite"
+			],
+			[
+				"sku",
+				"skus"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"Catego",
+				"category"
+			],
+			[
 				"product",
 				"product_data"
 			],
 			[
 				"Flux",
 				"FluxProduct"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
 			],
 			[
 				"random",
@@ -30,10 +74,6 @@
 			[
 				"cart",
 				"cartItems"
-			],
-			[
-				"pro",
-				"products"
 			],
 			[
 				"produc",
@@ -144,10 +184,6 @@
 				"or_id"
 			],
 			[
-				"prod",
-				"product_info"
-			],
-			[
 				"so",
 				"so_id"
 			],
@@ -216,18 +252,18 @@
 	"buffers":
 	[
 		{
-			"file": "jplaravel.sublime-project",
+			"file": "app/Http/Controllers/FavoriteController.php",
 			"settings":
 			{
-				"buffer_size": 322,
+				"buffer_size": 1639,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/ProductController.php",
+			"file": "database/seeds/ProductsTableSeeder.php",
 			"settings":
 			{
-				"buffer_size": 736,
+				"buffer_size": 2964,
 				"line_ending": "Unix"
 			}
 		},
@@ -235,64 +271,15 @@
 			"file": "Vagrantfile",
 			"settings":
 			{
-				"buffer_size": 2032,
+				"buffer_size": 2153,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": " /usr/bin/phpize\n ./configure --with-php-config=/usr/bin/php-config\n sudo make && sudo make install\n sudo service php7.0-fpm restart\n sudo vim /etc/php/7.0/fpm/php.ini\n sudo vim /etc/php/7.0/cli/php.ini\n\n # Add extension=xhprof.so\n sudo service php7.0-fpm restart\n php -m | grep xhprof\n ",
+			"file": "config/database.php",
 			"settings":
 			{
-				"buffer_size": 287,
-				"line_ending": "Unix",
-				"name": "/usr/bin/phpize"
-			}
-		},
-		{
-			"file": "public/index.php",
-			"settings":
-			{
-				"buffer_size": 1780,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Image.php",
-			"settings":
-			{
-				"buffer_size": 784,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/Controller.php",
-			"settings":
-			{
-				"buffer_size": 1853,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/routes.php",
-			"settings":
-			{
-				"buffer_size": 1487,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/IndexController.php",
-			"settings":
-			{
-				"buffer_size": 544,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/modules/product_card.mustache",
-			"settings":
-			{
-				"buffer_size": 827,
+				"buffer_size": 4001,
 				"line_ending": "Unix"
 			}
 		}
@@ -414,24 +401,48 @@
 		"/Users/Jonathan/development/just-pikd-laravel",
 		"/Users/Jonathan/development/just-pikd-laravel/app",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Http",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers"
+		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Models"
 	],
 	"file_history":
 	[
-		"/Users/Jonathan/development/just-pikd-laravel/config/view.php",
+		"/Users/Jonathan/Dropbox/Pluralsight/php-highly-performant/php-highly-performant-m3/php-highly-performant-m3.meta",
+		"/Users/Jonathan/development/just-pikd-laravel/schema/product_mysql.sql",
+		"/Users/Jonathan/Dropbox/Pluralsight/php-highly-performant/php-highly-performant-m2/questions.txt",
+		"/Users/Jonathan/Dropbox/pluralsight_wip/php-highly-performant/module 1/questions.txt",
+		"/Users/Jonathan/Dropbox/pluralsight_wip/php-highly-performant/module 2/nginx.conf",
+		"/Users/Jonathan/Dropbox/pluralsight_wip/php-highly-performant/module 2/server.conf",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Daos/Product.php",
+		"/Users/Jonathan/development/just-pikd-laravel/config/database.php",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/FavoriteController.php",
+		"/Users/Jonathan/development/just-pikd-laravel/config/app.php",
+		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Cache/CacheManager.php",
+		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php",
+		"/Users/Jonathan/development/just-pikd-laravel/composer.json",
+		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Support/Facades/Redis.php",
+		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Redis/RedisServiceProvider.php",
+		"/Users/Jonathan/development/just-pikd-laravel/database/seeds/ProductsTableSeeder.php",
+		"/Users/Jonathan/development/just-pikd-laravel/resources/views/modules/product_card.mustache",
+		"/Users/Jonathan/development/just-pikd-laravel/product_names.txt",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/IndexController.php",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Http/routes.php",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/Controller.php",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Image.php",
+		"/Users/Jonathan/development/just-pikd-laravel/public/index.php",
+		"/Users/Jonathan/development/just-pikd-laravel/Vagrantfile",
+		"/Users/Jonathan/development/just-pikd-laravel/jplaravel.sublime-project",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/ProductController.php",
+		"/Users/Jonathan/development/just-pikd-laravel/schema/product.sql",
+		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/CategoryController.php",
+		"/Users/Jonathan/development/just-pikd-laravel/resources/views/favorites.mustache",
+		"/Users/Jonathan/development/just-pikd-laravel/resources/views/category.mustache",
+		"/Users/Jonathan/development/just-pikd-laravel/config/view.php",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/constants/FluxCartConstants.js",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/utils/CartAPI.js",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/views/base.mustache",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Image.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/Controller.php",
-		"/Users/Jonathan/development/just-pikd-laravel/resources/views/modules/product_card.mustache",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/stores/ProductStore.js",
-		"/Users/Jonathan/development/just-pikd-laravel/Vagrantfile",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/stores/CartStore.js",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/actions/FluxCartActions.js",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/ProductController.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/IndexController.php",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/components/FluxProduct.react.js",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/views/modules/header.mustache",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/views/modules/footer.mustache",
@@ -439,8 +450,6 @@
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/components/FluxCartApp.react.js",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/components/FluxCart.react.js",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/sass/components/_cart.scss",
-		"/Users/Jonathan/development/just-pikd-laravel/jplaravel.sublime-project",
-		"/Users/Jonathan/development/just-pikd-laravel/composer.json",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/views/index.mustache",
 		"/Users/Jonathan/development/just-pikd-laravel/public/build/css/cart.css",
 		"/Users/Jonathan/development/just-pikd-laravel/gulpfile.js",
@@ -460,10 +469,8 @@
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Util.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Models/Product.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/FavoriteController.php",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Models/Customer.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Http/routes.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/CartController.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/SearchController.php",
 		"/Users/Jonathan/development/just-pikd-laravel/tests/FavoritesTest.php",
@@ -471,9 +478,7 @@
 		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/Auth/AuthController.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Services/Registrar.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Middleware/SetViewData.php",
-		"/Users/Jonathan/development/just-pikd-laravel/config/app.php",
 		"/Users/Jonathan/development/just-pikd-laravel/resources/views/search_results.mustache",
-		"/Users/Jonathan/development/just-pikd-laravel/schema/product.sql",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Models/FavoriteProduct.php",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Models/Order.php",
@@ -492,7 +497,6 @@
 		"/Users/Jonathan/development/just-pikd-laravel/resources/assets/js/main.js",
 		"/Users/Jonathan/development/just-pikd-laravel/public/build/js/bundle.js",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Http/Controllers/ReferralController.php",
-		"/Users/Jonathan/development/just-pikd-laravel/resources/views/favorites.mustache",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Models/OrderProduct.php",
 		"/Users/Jonathan/development/just-pikd-laravel/artisan",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBroker.php",
@@ -522,7 +526,6 @@
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Session/Session.php",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/composer/autoload_namespaces.php",
-		"/Users/Jonathan/development/just-pikd-laravel/config/database.php",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/symfony/console/Symfony/Component/Console/Tests/Fixtures/definition_astext.txt",
 		"/Users/Jonathan/development/just-pikd-laravel/schema/dump_schema.php",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordResetServiceProvider.php",
@@ -530,22 +533,7 @@
 		"/Users/Jonathan/development/just-pikd-laravel/app/Providers/RouteServiceProvider.php",
 		"/Users/Jonathan/development/just-pikd-laravel/vendor/phpunit/phpunit/build/phar-autoload.php.in",
 		"/Users/Jonathan/development/just-pikd-laravel/app/Providers/AuthServiceProvider.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Providers/AppServiceProvider.php",
-		"/Users/Jonathan/development/just-pikd-laravel/resources/lang/en/passwords.php",
-		"/Users/Jonathan/development/just-pikd-laravel/vendor/symfony/security-core/Symfony/Component/Security/Core/Encoder/PasswordEncoderInterface.php",
-		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Contracts/Auth/UserProvider.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/User.php",
-		"/Users/Jonathan/development/just-pikd-laravel/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/UriSigner.php",
-		"/Users/Jonathan/development/just-pikd-laravel/vendor/league/flysystem/src/PluginInterface.php",
-		"/Users/Jonathan/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Enums/OrderStatus.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Console/Commands/GenerateModels.php",
-		"/Users/Jonathan/development/just-pikd-laravel/vendor/laravel/framework/src/Illuminate/Auth/GenericUser.php",
-		"/Users/Jonathan/development/just-pikd-laravel/app/Enums/TEMPERATURE_ZONE.php",
-		"/Users/Jonathan/development/just-pikd-laravel/vendor/phpunit/phpunit/tests/_files/ThrowExceptionTestCase.php",
-		"/Users/Jonathan/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
-		"/Users/Jonathan/development/just-pikd-laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Validate.php",
-		"/Users/Jonathan/development/just-pikd-laravel/resources/lang/en/validation.php"
+		"/Users/Jonathan/development/just-pikd-laravel/app/Providers/AppServiceProvider.php"
 	],
 	"find":
 	{
@@ -564,6 +552,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\n        ",
+			"products_for_display",
+			"new Redis",
+			"redis",
+			"reis",
+			"CREATE TABLE favor",
+			"create table",
 			"Just Pikd",
 			"help-dev",
 			"pr_name",
@@ -684,14 +679,7 @@
 			"            ",
 			"           ",
 			"          ",
-			"idx_fts_search",
-			"simple",
-			"cart",
-			"$",
-			"desc",
-			"\"\\t\" . ",
-			"test_mode",
-			"page_data"
+			"idx_fts_search"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -709,120 +697,30 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "jplaravel.sublime-project",
+					"file": "app/Http/Controllers/FavoriteController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 322,
+						"buffer_size": 1639,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								316,
-								316
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/ProductController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 736,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								736,
-								736
+								398,
+								398
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Vagrantfile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2032,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1839,
-								1839
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 287,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								287
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/usr/bin/phpize",
-							"default_dir": "/Users/Jonathan/development/just-pikd-laravel",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -833,179 +731,85 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "public/index.php",
+					"buffer": 1,
+					"file": "database/seeds/ProductsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1780,
+						"buffer_size": 2964,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1093,
-								1093
+								1465,
+								1465
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/Image.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 784,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								449,
-								449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 6,
-					"file": "app/Http/Controllers/Controller.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1853,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								870,
-								870
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/Http/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1487,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								948,
-								948
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/Http/Controllers/IndexController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 544,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								321,
-								321
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1215.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "resources/views/modules/product_card.mustache",
+					"buffer": 2,
+					"file": "Vagrantfile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 827,
+						"buffer_size": 2153,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								184,
-								191
+								1058,
+								1058
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML Mustache/Syntaxes/HTMLMustache.tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 341.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "config/database.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4001,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1013,7 +817,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1036,18 +840,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -1074,6 +871,70 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"product_my",
+				"schema/product_mysql.sql"
+			],
+			[
+				"vagr",
+				"Vagrantfile"
+			],
+			[
+				"seed",
+				"database/seeds/ProductsTableSeeder.php"
+			],
+			[
+				"data",
+				"config/database.php"
+			],
+			[
+				"comp",
+				"composer.json"
+			],
+			[
+				"illuminate/support/facades/redis",
+				"vendor/laravel/framework/src/Illuminate/Support/Facades/Redis.php"
+			],
+			[
+				"redisserv",
+				"vendor/laravel/framework/src/Illuminate/Redis/RedisServiceProvider.php"
+			],
+			[
+				"config/app",
+				"config/app.php"
+			],
+			[
+				"config/data",
+				"config/database.php"
+			],
+			[
+				"product",
+				"product_names.txt"
+			],
+			[
+				"seedprod",
+				"database/seeds/ProductsTableSeeder.php"
+			],
+			[
+				"product.sq",
+				"schema/product_mysql.sql"
+			],
+			[
+				"favor",
+				"app/Http/Controllers/FavoriteController.php"
+			],
+			[
+				"favoritee",
+				"resources/views/favorites.mustache"
+			],
+			[
+				"daos/",
+				"app/Daos/Product.php"
+			],
+			[
+				"route",
+				"app/Http/routes.php"
+			],
 			[
 				"index",
 				"public/index.php"
@@ -1109,10 +970,6 @@
 			[
 				"inde",
 				"resources/views/index.mustache"
-			],
-			[
-				"vagr",
-				"Vagrantfile"
 			],
 			[
 				"components/_cart",
@@ -1233,10 +1090,6 @@
 			[
 				"product_car",
 				"resources/views/modules/product_card.mustache"
-			],
-			[
-				"config/app",
-				"config/app.php"
 			],
 			[
 				"compsoer",
@@ -1529,62 +1382,6 @@
 			[
 				"cartcontro",
 				"app/Http/Controllers/CartController.php"
-			],
-			[
-				"canresetp",
-				"vendor/laravel/framework/src/Illuminate/Auth/Passwords/CanResetPassword.php"
-			],
-			[
-				"databasetoken",
-				"vendor/laravel/framework/src/Illuminate/Auth/Passwords/DatabaseTokenRepository.php"
-			],
-			[
-				"resetspass",
-				"vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php"
-			],
-			[
-				"passwordcontro",
-				"app/Http/Controllers/Auth/PasswordController.php"
-			],
-			[
-				"passwordbrok",
-				"vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBroker.php"
-			],
-			[
-				"userpro",
-				"vendor/laravel/framework/src/Illuminate/Contracts/Auth/UserProvider.php"
-			],
-			[
-				"pikduser",
-				"app/Providers/PikdUserProvider.php"
-			],
-			[
-				"flash",
-				"resources/views/modules/flash_messages.mustache"
-			],
-			[
-				"utilcontr",
-				"app/Http/Controllers/UtilController.php"
-			],
-			[
-				"validatesreque",
-				"vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php"
-			],
-			[
-				"view/facto",
-				"vendor/laravel/framework/src/Illuminate/View/Factory.php"
-			],
-			[
-				"viewdat",
-				"app/Http/Middleware/SetViewData.php"
-			],
-			[
-				"generatee",
-				"app/Console/Commands/GenerateEnums.php"
-			],
-			[
-				"orderstatu",
-				"app/Enums/OrderStatus.php"
 			]
 		],
 		"width": 0.0
@@ -1607,7 +1404,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

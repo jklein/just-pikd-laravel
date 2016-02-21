@@ -77,14 +77,18 @@ class ProductsTableSeeder extends Seeder
         }
 
 
-        DB::table('categories')->insert([
-            'cat_id' => 1,
-            'cat_name' => 'First category',
-            'cat_active' => 1,
-        ]);
+        DB::table('categories')->insert(['cat_name' => 'Produce', 'cat_active' => 1]);
+        DB::table('categories')->insert(['cat_name' => 'Bakery', 'cat_active' => 1]);
+        DB::table('categories')->insert(['cat_name' => 'Dairy', 'cat_active' => 1]);
+        DB::table('categories')->insert(['cat_name' => 'Meat & Seafood', 'cat_active' => 1]);
+        DB::table('categories')->insert(['cat_name' => 'Deli', 'cat_active' => 1]);
+        DB::table('categories')->insert(['cat_name' => 'Canned Goods', 'cat_active' => 1]);
+        DB::table('categories')->insert(['cat_name' => 'Beverages', 'cat_active' => 1]);
 
         for ($i=0; $i < 40; $i++) {
-            $this->seedFavorite($skus[rand(0, $num_products - 1)]);
+            for ($j=0; $j < 40; $j++) {
+                $this->seedFavorite($skus[rand(0, $num_products - 1)], $i);
+            }
         }
     }
 
@@ -105,10 +109,10 @@ class ProductsTableSeeder extends Seeder
         return $sku;
     }
 
-    private function seedFavorite($sku) {
+    private function seedFavorite($sku, $cu_id) {
         DB::table('favorite_products')->insert([
             'fp_pr_sku' => $sku,
-            'fp_cu_id'  => 1,
+            'fp_cu_id'  => $cu_id,
         ]);
     }
 }

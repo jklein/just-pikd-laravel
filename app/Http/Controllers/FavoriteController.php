@@ -5,6 +5,7 @@ use Pikd\Http\Controllers\Controller;
 use Pikd\Daos\Product;
 use Pikd\Models\FavoriteProduct;
 
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Http\Request;
 
 class FavoriteController extends Controller {
@@ -16,7 +17,17 @@ class FavoriteController extends Controller {
      */
     public function index($user_id)
     {
-        $products_for_display = Product::getFavoriteProductsForCustomer($user_id);
+        $redis = Redis::connection();
+
+        // $cached_products = $redis->get('favorites:' . $user_id);
+        $cached_products = false;
+
+        if (!$cached_products) {
+            $products_for_display = Product::getFavoriteProductsForCustomer($user_id);
+            $redis->set('favorites:' . $user_id, json_encode($products_for_display));
+        } else {
+            $products_for_display = json_decode($cached_products, true);
+        }
 
         $data['products'] = $this->formatProductDataForDisplay($products_for_display);
 

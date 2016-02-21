@@ -14,12 +14,12 @@ class ProductController extends Controller {
     }
 
     public function handleGet($sku, $slug) {
-        $p = (array)\Pikd\Daos\Product::getProductData(config('soid'), $sku);
+        $p = (array)\Pikd\Daos\Product::getProductData($sku);
         $prod = new \Pikd\Models\Product($p);
 
         $p['image_src'] = \Pikd\Image::product($p['pr_ma_id'], $p['pr_gtin'], \Pikd\Image::FULL_SIZE);
-        $p['list_cost_formatted'] = \Pikd\Util::formatPrice($p['ps_list_cost']);
-        $p['list_cost_cents'] = $p['ps_list_cost'];
+        $p['list_cost_formatted'] = \Pikd\Util::formatPrice($p['pr_list_cost']);
+        $p['list_cost_cents'] = $p['pr_list_cost'];
         $p['link_href'] = $prod->getLink();
 
         return view('product', $p);

@@ -45,6 +45,6 @@ class Product extends Model {
     ];
 
     public function getLink() {
-        return \Pikd\Util::productLink($this->pr_sku, $this->pr_name);
+        return \Pikd\Util::productLink($this->attributes['pr_sku'], $this->attributes['pr_name']);
     }
 }

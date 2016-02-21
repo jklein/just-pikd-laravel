@@ -65,12 +65,13 @@ CREATE TABLE candsproducts (
 ) TYPE=MyISAM;
 
 CREATE TABLE categories (
-    cat_id int(11) NOT NULL,
+    cat_id int(11) NOT NULL AUTO_INCREMENT,
     cat_name text NOT NULL,
     cat_third_party_identifier text,
     cat_parent_cat_id int(11),
     cat_active int(11),
-    last_updated timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL
+    last_updated timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    PRIMARY KEY (cat_id)
 );
 
 CREATE TABLE favorite_products (
